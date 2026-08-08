@@ -1,7 +1,9 @@
 /* Product catalogue data for The Aurum Peptide Co.
-   Pricing: items matching the supplier price list (Pricing/Price List.odt) are set to
-   (list price x 0.5) + 10% margin. Remaining items are indicative AUD placeholder pricing —
-   update with real pricing/stock before launch.
+   Pricing: items matching a spec in Pricing/Price list 2026 peptide.pdf (USD wholesale cost per
+   box of 10 vials, FOB Shenzhen) are set to (box price / 10) x 1.5 [USD->AUD] x 8 [margin].
+   Items with no matching spec/size in that list keep their prior indicative AUD placeholder price —
+   update once real cost data for that size is available. All oral capsules are not covered by the
+   2026 wholesale list (injectables only) and remain placeholder pricing.
    All copy is framed around in-vitro / laboratory research use only. No human dosing instructions. */
 window.AURUM_CATEGORIES = [
   { key:'weight-loss',      label:'Weight Loss & Metabolic' },
@@ -9,8 +11,7 @@ window.AURUM_CATEGORIES = [
   { key:'skin-antiaging',   label:'Skin, Hair & Anti-Aging' },
   { key:'cognitive-sleep',  label:'Cognitive, Mood & Sleep' },
   { key:'hormonal',         label:'Hormonal Support' },
-  { key:'specialty',        label:'Specialty' },
-  { key:'capsules',         label:'Oral Capsules' }
+  { key:'specialty',        label:'Specialty' }
 ];
 
 window.AURUM_PRODUCTS = [
@@ -23,7 +24,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['Gastrointestinal mucosal repair models','Tendon & ligament healing studies','Angiogenesis & nitric-oxide pathway research','Anti-inflammatory mechanism studies'],
     specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water; gently swirl, do not shake', storage:'Lyophilised: 2-8°C, dark. Reconstituted: 2-8°C, use within 14 days. Do not freeze.' },
-    options:[ {label:'5mg vial', price:59.95}, {label:'10mg vial', price:49.50} ]
+    options:[ {label:'5mg vial', price:45.60}, {label:'10mg vial', price:79.20} ]
   },
   {
     slug:'tb-500', name:'TB-500', form:'Injectable', category:'growth-recovery', badge:null, purity:'99%+ HPLC',
@@ -34,7 +35,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['Cell migration & actin regulation studies','Angiogenesis / microvascular research','Wound-healing kinetics models','Combination studies with BPC-157'],
     specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water; gentle roll, avoid vigorous shaking', storage:'Lyophilised: 2-8°C, dark. Reconstituted: 2-8°C, use within 14 days. Do not freeze.' },
-    options:[ {label:'5mg vial', price:69.95}, {label:'10mg vial', price:49.50} ]
+    options:[ {label:'5mg vial', price:93.60}, {label:'10mg vial', price:172.80} ]
   },
   {
     slug:'cjc-1295', name:'CJC-1295 (No DAC)', form:'Injectable', category:'growth-recovery', badge:null, purity:'99%+ HPLC',
@@ -45,7 +46,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['GHRH receptor activity studies','Pulsatile GH secretion modelling','Combination studies with GHRP analogues','IGF-1 axis research'],
     specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'Lyophilised: 2-8°C, dark. Reconstituted: 2-8°C, use within 28 days. Do not freeze.' },
-    options:[ {label:'2mg vial', price:44.95}, {label:'5mg vial', price:59.95} ]
+    options:[ {label:'2mg vial', price:44.95}, {label:'5mg vial', price:105.60} ]
   },
   {
     slug:'ipamorelin', name:'Ipamorelin', form:'Injectable', category:'growth-recovery', badge:null, purity:'99%+ HPLC',
@@ -56,7 +57,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['Ghrelin receptor selectivity studies','GH secretagogue comparative research','Combination protocol modelling with GHRH analogues'],
     specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'Lyophilised: 2-8°C, dark. Reconstituted: 2-8°C, use within 28 days. Do not freeze.' },
-    options:[ {label:'2mg vial', price:44.95}, {label:'5mg vial', price:59.95} ]
+    options:[ {label:'2mg vial', price:34.80}, {label:'5mg vial', price:49.20} ]
   },
   {
     slug:'cjc-ipa-blend', name:'CJC-1295 + Ipamorelin Blend', form:'Injectable', category:'growth-recovery', badge:'Popular', purity:'99%+ HPLC',
@@ -67,7 +68,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['Synergistic GHRH + GHRP modelling','Growth hormone pulse-amplitude comparison studies'],
     specs:{ appearance:'White lyophilised powder blend', reconstitution:'Bacteriostatic water', storage:'Lyophilised: 2-8°C, dark. Reconstituted: 2-8°C, use within 28 days. Do not freeze.' },
-    options:[ {label:'5mg+5mg vial', price:88}, {label:'10mg+10mg vial', price:129.95} ]
+    options:[ {label:'5mg+5mg vial', price:151.20}, {label:'10mg+10mg vial', price:129.95} ]
   },
   {
     slug:'tesamorelin', name:'Tesamorelin (TSM)', form:'Injectable', category:'weight-loss', badge:null, purity:'99%+ HPLC',
@@ -78,7 +79,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['Visceral adipose tissue research models','IGF-1 axis studies','Lipid metabolism marker research'],
     specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'Lyophilised: 2-8°C, dark. Reconstituted: 2-8°C, use within 20 days. Do not freeze.' },
-    options:[ {label:'5mg vial', price:99.95}, {label:'10mg vial', price:71.50} ]
+    options:[ {label:'5mg vial', price:105.60}, {label:'10mg vial', price:172.80} ]
   },
   {
     slug:'hgh', name:'HGH (Somatropin)', form:'Injectable', category:'growth-recovery', badge:null, purity:'≥99% Biological Activity',
@@ -89,7 +90,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['Cell proliferation & IGF-1 assays','Comparator standard for GH-secretagogue studies','Metabolic marker research'],
     specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'Lyophilised: 2-8°C, dark. Reconstituted: 2-8°C, use within 14 days. Do not freeze.' },
-    options:[ {label:'10IU vial', price:64.95}, {label:'100IU kit (10 vials)', price:165} ]
+    options:[ {label:'10IU vial', price:54.00}, {label:'100IU kit (10 vials)', price:540.00} ]
   },
   {
     slug:'hcg', name:'HCG', form:'Injectable', category:'hormonal', badge:null, purity:'≥99% Biological Activity',
@@ -100,7 +101,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['Gonadal-axis signalling studies','Steroidogenesis pathway research','Fertility-model laboratory studies'],
     specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'Lyophilised: 2-8°C, dark. Reconstituted: 2-8°C, use within 14 days. Do not freeze.' },
-    options:[ {label:'5000IU vial', price:69.95} ]
+    options:[ {label:'5000IU vial', price:84.00} ]
   },
   {
     slug:'retatrutide', name:'Retatrutide (RETA)', form:'Injectable', category:'weight-loss', badge:'Popular', purity:'99%+ HPLC',
@@ -111,7 +112,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['Triple-receptor agonism studies','Energy expenditure & appetite-signalling models','Hepatic lipid marker research'],
     specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'Lyophilised: 2-8°C, dark. Reconstituted: 2-8°C, use within 28 days. Do not freeze.' },
-    options:[ {label:'10mg vial', price:143}, {label:'30mg vial', price:399.95} ]
+    options:[ {label:'10mg vial', price:110.40}, {label:'30mg vial', price:237.60} ]
   },
   {
     slug:'tirzepatide', name:'Tirzepatide', form:'Injectable', category:'weight-loss', badge:'Popular', purity:'99%+ HPLC',
@@ -122,7 +123,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['Incretin receptor pathway studies','Glycaemic control marker research','Dose-response modelling'],
     specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'Lyophilised: 2-8°C, dark. Reconstituted: 2-8°C, use within 28 days. Do not freeze.' },
-    options:[ {label:'30mg vial', price:299.95}, {label:'60mg vial', price:499.95} ]
+    options:[ {label:'30mg vial', price:135.60}, {label:'60mg vial', price:219.60} ]
   },
   {
     slug:'liraglutide', name:'Liraglutide', form:'Injectable', category:'weight-loss', badge:null, purity:'99%+ HPLC',
@@ -133,7 +134,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['GLP-1 receptor comparator studies','Appetite-regulation pathway research'],
     specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'Lyophilised: 2-8°C, dark. Reconstituted: 2-8°C, use within 28 days. Do not freeze.' },
-    options:[ {label:'10mg vial', price:149.95} ]
+    options:[ {label:'10mg vial', price:381.60} ]
   },
   {
     slug:'mots-c', name:'MOTS-c', form:'Injectable', category:'weight-loss', badge:null, purity:'99%+ HPLC',
@@ -144,7 +145,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['AMPK pathway activation studies','Mitochondrial biogenesis research','Insulin-sensitivity marker modelling'],
     specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'Lyophilised: -20°C, dark. Reconstituted: 2-8°C, use within 7 days. Do not freeze.' },
-    options:[ {label:'5mg vial', price:69.95}, {label:'10mg vial', price:99} ]
+    options:[ {label:'5mg vial', price:69.95}, {label:'10mg vial', price:84.00} ]
   },
   {
     slug:'lc120', name:'LC120 Lipotropic Blend', form:'Injectable', category:'weight-loss', badge:null, purity:'Research Blend',
@@ -166,7 +167,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['Hepatic fat metabolism studies','Energy marker & cobalamin pathway research'],
     specs:{ appearance:'Clear solution', reconstitution:'Ready-mixed / bacteriostatic water depending on batch', storage:'2-8°C, dark. Use within 14 days of reconstitution. Do not freeze.' },
-    options:[ {label:'10mg vial', price:54.95} ]
+    options:[ {label:'10mg vial', price:204.00} ]
   },
   {
     slug:'ghk-cu', name:'GHK-Cu Copper Peptide', form:'Injectable', category:'skin-antiaging', badge:'Best Seller', purity:'99%+ HPLC',
@@ -177,7 +178,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['Collagen/elastin synthesis studies','Dermal remodelling & wound-healing models','Hair follicle (Wnt pathway) research'],
     specs:{ appearance:'Blue lyophilised powder / pale blue solution once reconstituted', reconstitution:'Bacteriostatic water', storage:'2-8°C, dark. Reconstituted: use within 10-20 days. Do not freeze.' },
-    options:[ {label:'50mg vial', price:77}, {label:'100mg vial', price:110} ]
+    options:[ {label:'50mg vial', price:45.60}, {label:'100mg vial', price:60.00} ]
   },
   {
     slug:'glutathione', name:'Glutathione', form:'Injectable', category:'skin-antiaging', badge:null, purity:'99%+ HPLC',
@@ -199,7 +200,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['Cytokine inhibition studies (TNF-α, IL-6)','Dermal inflammation & barrier research'],
     specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'2-8°C, dark. Reconstituted: use within 14 days. Do not freeze.' },
-    options:[ {label:'10mg vial', price:49.50} ]
+    options:[ {label:'10mg vial', price:80.40} ]
   },
   {
     slug:'bbg70', name:'BBG70 Complex', form:'Injectable', category:'skin-antiaging', badge:'New', purity:'Research Blend',
@@ -210,7 +211,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['Combined dermal remodelling studies','Multi-pathway tissue repair research'],
     specs:{ appearance:'Pale blue lyophilised powder', reconstitution:'Bacteriostatic water', storage:'2-8°C, dark. Reconstituted: use within 14 days. Do not freeze.' },
-    options:[ {label:'70mg vial', price:139.95} ]
+    options:[ {label:'70mg vial', price:258.00} ]
   },
   {
     slug:'klow', name:'KLOW Blend', form:'Injectable', category:'skin-antiaging', badge:'New', purity:'Research Blend',
@@ -221,7 +222,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['Multi-compound tissue repair research','Combined anti-inflammatory & dermal remodelling studies'],
     specs:{ appearance:'Pale blue lyophilised powder', reconstitution:'Bacteriostatic water (2.5-3.0mL)', storage:'-20°C unopened; reconstituted 2-8°C, use within 10-20 days. Do not freeze after mixing.' },
-    options:[ {label:'80mg vial', price:93.50} ]
+    options:[ {label:'80mg vial', price:294.00} ]
   },
   {
     slug:'pt-141', name:'PT-141 (Bremelanotide)', form:'Injectable', category:'specialty', badge:null, purity:'99%+ HPLC',
@@ -232,7 +233,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['Melanocortin receptor (MC3R/MC4R) studies','CNS receptor-binding research'],
     specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'2-8°C, dark. Reconstituted: use within 14 days. Do not freeze.' },
-    options:[ {label:'10mg vial', price:38.50} ]
+    options:[ {label:'10mg vial', price:72.00} ]
   },
   {
     slug:'selank', name:'Selank', form:'Injectable', category:'cognitive-sleep', badge:null, purity:'99%+ HPLC',
@@ -243,7 +244,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['GABAergic pathway studies','HPA-axis / cortisol regulation research','Neuroprotective mechanism studies'],
     specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'2-8°C, dark. Reconstituted: use within 14 days. Do not freeze.' },
-    options:[ {label:'5mg vial', price:59.95}, {label:'10mg vial', price:33} ]
+    options:[ {label:'5mg vial', price:50.40}, {label:'10mg vial', price:90.00} ]
   },
   {
     slug:'dsip', name:'DSIP (Delta Sleep Inducing Peptide)', form:'Injectable', category:'cognitive-sleep', badge:null, purity:'99%+ HPLC',
@@ -254,7 +255,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['Delta-wave sleep architecture studies','Neuroendocrine rhythm research'],
     specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'2-8°C, dark. Reconstituted: use within 14 days. Do not freeze.' },
-    options:[ {label:'5mg vial', price:59.95}, {label:'10mg vial', price:69.95} ]
+    options:[ {label:'5mg vial', price:67.20}, {label:'10mg vial', price:104.40} ]
   },
   {
     slug:'epithalon', name:'Epithalon', form:'Injectable', category:'cognitive-sleep', badge:null, purity:'99%+ HPLC',
@@ -265,7 +266,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['Telomerase activity studies','Pineal gland / circadian rhythm research','Cellular senescence marker research'],
     specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'2-8°C, dark. Reconstituted: use within 20 days. Do not freeze.' },
-    options:[ {label:'10mg vial', price:69.95}, {label:'50mg vial', price:159.95} ]
+    options:[ {label:'10mg vial', price:50.40}, {label:'50mg vial', price:180.00} ]
   },
   {
     slug:'semax', name:'Semax', form:'Injectable', category:'cognitive-sleep', badge:null, purity:'99%+ HPLC',
@@ -276,121 +277,8 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['BDNF expression studies','Hippocampal function research','Cognitive performance marker studies'],
     specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'2-8°C, dark. Reconstituted: use within 14 days. Do not freeze.' },
-    options:[ {label:'10mg vial', price:69.95} ]
+    options:[ {label:'10mg vial', price:90.00} ]
   },
-
-  /* ---------------- Oral Capsule Range ---------------- */
-  {
-    slug:'bpc-157-capsules', name:'BPC-157 Capsules', form:'Capsule', category:'capsules', badge:'Best Seller', purity:'99%+ HPLC',
-    shortDesc:'Oral capsule format of our reference-standard BPC-157 for gut-repair research.',
-    description:[
-      "Our BPC-157 capsules deliver the same reference-standard, third-party tested BPC-157 in a convenient oral research format, formulated for researchers studying gastrointestinal-tract exposure models without reconstitution.",
-      "Each capsule batch is tested for identity and purity, with results available in our CoA Library."
-    ],
-    researchApplications:['Oral bioavailability research','Gastrointestinal exposure modelling'],
-    specs:{ appearance:'Opaque research capsule', reconstitution:'N/A — oral capsule format', storage:'Store below 25°C, away from light and moisture.' },
-    options:[ {label:'30 capsules / 500mcg', price:79.95}, {label:'60 capsules / 500mcg', price:139.95} ]
-  },
-  {
-    slug:'tb-500-capsules', name:'TB-500 Capsules', form:'Capsule', category:'capsules', badge:null, purity:'99%+ HPLC',
-    shortDesc:'Oral capsule format of TB-500 for tissue-repair research.',
-    description:[
-      "TB-500 capsules provide an oral research format of our reference-standard Thymosin Beta-4 fragment, for researchers examining gut-stable delivery and comparative bioavailability models."
-    ],
-    researchApplications:['Oral delivery / bioavailability comparison studies'],
-    specs:{ appearance:'Opaque research capsule', reconstitution:'N/A — oral capsule format', storage:'Store below 25°C, away from light and moisture.' },
-    options:[ {label:'30 capsules / 500mcg', price:99.95} ]
-  },
-  {
-    slug:'bpc-tb-blend-capsules', name:'BPC-157 / TB-500 Blend Capsules', form:'Capsule', category:'capsules', badge:'Popular', purity:'Research Blend',
-    shortDesc:'Combined BPC-157 + TB-500 oral capsule for tissue-repair research.',
-    description:[
-      "A combined oral formulation of BPC-157 and TB-500, formulated for researchers studying the two compounds' proposed synergistic activity in tissue-repair pathway models without preparing two separate solutions."
-    ],
-    researchApplications:['Combined tissue-repair pathway studies'],
-    specs:{ appearance:'Opaque research capsule', reconstitution:'N/A — oral capsule format', storage:'Store below 25°C, away from light and moisture.' },
-    options:[ {label:'30 capsules', price:97.50}, {label:'60 capsules', price:169.95} ]
-  },
-  {
-    slug:'sermorelin-capsules', name:'Sermorelin Capsules', form:'Capsule', category:'capsules', badge:null, purity:'99%+ HPLC',
-    shortDesc:'Oral GHRH-fragment capsule for growth-hormone axis research.',
-    description:[
-      "Sermorelin is a truncated GHRH(1-29) analogue; our capsule format supports oral-route research designs into GH-axis stimulation comparative to injectable reference standards."
-    ],
-    researchApplications:['GHRH receptor / GH-axis research','Oral vs injectable comparative studies'],
-    specs:{ appearance:'Opaque research capsule', reconstitution:'N/A — oral capsule format', storage:'Store below 25°C, away from light and moisture.' },
-    options:[ {label:'30 capsules', price:99.95} ]
-  },
-  {
-    slug:'epithalon-capsules', name:'Epithalon Capsules', form:'Capsule', category:'capsules', badge:null, purity:'99%+ HPLC',
-    shortDesc:'Oral capsule format of Epithalon for longevity research.',
-    description:[
-      "Epithalon capsules provide an oral research format of our reference-standard tetrapeptide for telomerase-activity and circadian research designs."
-    ],
-    researchApplications:['Telomerase activity studies','Circadian rhythm research'],
-    specs:{ appearance:'Opaque research capsule', reconstitution:'N/A — oral capsule format', storage:'Store below 25°C, away from light and moisture.' },
-    options:[ {label:'30 capsules / 10mg', price:99.95} ]
-  },
-  {
-    slug:'mk-677-capsules', name:'MK-677 (Ibutamoren) Capsules', form:'Capsule', category:'capsules', badge:'Popular', purity:'99%+ HPLC',
-    shortDesc:'Orally-active ghrelin receptor agonist reference standard.',
-    description:[
-      "MK-677 (Ibutamoren) is a non-peptide, orally-active ghrelin receptor agonist widely referenced in GH/IGF-1 axis research literature as a comparator to injectable GHRP compounds."
-    ],
-    researchApplications:['Ghrelin receptor agonism studies','GH/IGF-1 axis comparator research'],
-    specs:{ appearance:'Opaque research capsule', reconstitution:'N/A — oral capsule format', storage:'Store below 25°C, away from light and moisture.' },
-    options:[ {label:'30 capsules / 10mg', price:89.95}, {label:'60 capsules / 25mg', price:149.95} ]
-  },
-  {
-    slug:'methylene-blue-capsules', name:'Methylene Blue Capsules', form:'Capsule', category:'capsules', badge:null, purity:'USP Grade',
-    shortDesc:'Mitochondrial redox agent studied in cellular energy research.',
-    description:[
-      "Pharmaceutical-grade Methylene Blue in oral capsule format, referenced in mitochondrial electron-transport-chain and cellular redox research literature."
-    ],
-    researchApplications:['Mitochondrial redox / electron transport chain studies','Cellular energy marker research'],
-    specs:{ appearance:'Blue research capsule', reconstitution:'N/A — oral capsule format', storage:'Store below 25°C, away from light and moisture.' },
-    options:[ {label:'30 capsules / 15mg', price:79.95} ]
-  },
-  {
-    slug:'tesofensine-capsules', name:'Tesofensine Capsules', form:'Capsule', category:'capsules', badge:null, purity:'99%+ HPLC',
-    shortDesc:'Triple monoamine reuptake inhibitor reference compound for metabolic research.',
-    description:[
-      "Tesofensine is a triple monoamine reuptake inhibitor referenced in appetite-regulation and central nervous system metabolic research literature."
-    ],
-    researchApplications:['Monoamine reuptake inhibition studies','Appetite-regulation CNS research'],
-    specs:{ appearance:'Opaque research capsule', reconstitution:'N/A — oral capsule format', storage:'Store below 25°C, away from light and moisture.' },
-    options:[ {label:'30 capsules / 0.5mg', price:99.95} ]
-  },
-  {
-    slug:'klow-capsules', name:'KLOW Blend Capsules', form:'Capsule', category:'capsules', badge:'New', purity:'Research Blend',
-    shortDesc:'Oral capsule format of our BPC-157 + GHK-Cu + TB-500 + KPV blend.',
-    description:[
-      "The oral capsule format of our popular KLOW research blend, combining BPC-157, GHK-Cu, TB-500 and KPV for researchers studying oral-route combination protocols."
-    ],
-    researchApplications:['Multi-compound oral delivery research'],
-    specs:{ appearance:'Opaque research capsule', reconstitution:'N/A — oral capsule format', storage:'Store below 25°C, away from light and moisture.' },
-    options:[ {label:'30 capsules', price:112.50}, {label:'60 capsules', price:189.95} ]
-  },
-  {
-    slug:'glow-capsules', name:'GLOW Blend Capsules', form:'Capsule', category:'capsules', badge:'New', purity:'Research Blend',
-    shortDesc:'Glutathione-forward oral blend capsule for skin & antioxidant research.',
-    description:[
-      "GLOW capsules combine Glutathione with complementary dermal-research peptides in oral format, formulated for researchers studying oxidative-stress and pigmentation pathway markers via the oral route."
-    ],
-    researchApplications:['Oxidative stress marker studies','Oral-route pigmentation pathway research'],
-    specs:{ appearance:'Opaque research capsule', reconstitution:'N/A — oral capsule format', storage:'Store below 25°C, away from light and moisture.' },
-    options:[ {label:'30 capsules', price:129.95} ]
-  },
-  {
-    slug:'nootropic-nad-capsules', name:'Dihexa / Selank / Semax / NAD+ Capsules', form:'Capsule', category:'capsules', badge:null, purity:'Research Blend',
-    shortDesc:'Combined nootropic + NAD+ oral blend for cognitive research.',
-    description:[
-      "A combined oral formulation blending Dihexa, Selank, Semax and NAD+ precursor compounds, designed for researchers studying combined neurotrophic and cellular-energy pathway markers."
-    ],
-    researchApplications:['Neurotrophic pathway (BDNF) studies','Cellular NAD+ metabolism research'],
-    specs:{ appearance:'Opaque research capsule', reconstitution:'N/A — oral capsule format', storage:'Store below 25°C, away from light and moisture.' },
-    options:[ {label:'30 capsules', price:112.50}, {label:'60 capsules', price:179.95} ]
-  }
 ];
 
 /* Helpers */
