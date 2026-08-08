@@ -42,9 +42,10 @@ window.AurumRender = (function(){
   }
 
   function blogCard(post){
+    var media = window.Aurum.blogIconSVG(post.category) || window.Aurum.vialSVG(initials(post.title), {fill:'#8a7233'});
     return ''
       + '<a href="' + root + 'blog-post.html?slug=' + post.slug + '" class="card blog-card">'
-      + '  <div class="product-media">' + window.Aurum.vialSVG(initials(post.title), {fill:'#8a7233'}) + '</div>'
+      + '  <div class="product-media">' + media + '</div>'
       + '  <div class="product-body">'
       + '    <span class="blog-meta">' + post.category + ' &middot; ' + post.readTime + '</span>'
       + '    <h3>' + post.title + '</h3>'

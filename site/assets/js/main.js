@@ -119,8 +119,98 @@
       + '</svg>';
   }
 
+  /* ---------- Blog category illustrations (inline SVG, gold-line-art on dark) ---------- */
+  var iconUid = 0;
+  function iconWrap(inner, uid){
+    return ''
+      + '<svg class="blog-icon" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">'
+      + '  <defs>'
+      + '    <linearGradient id="ic' + uid + '" x1="0" y1="0" x2="1" y2="1">'
+      + '      <stop offset="0" stop-color="#f2d998"/><stop offset=".55" stop-color="#c9a24b"/><stop offset="1" stop-color="#8a7233"/>'
+      + '    </linearGradient>'
+      + '  </defs>'
+      + inner
+      + '</svg>';
+  }
+
+  /* Metabolic Research — peptide chain docking into a receptor gap */
+  function iconMetabolic(uid){
+    return iconWrap(''
+      + '  <g fill="none" stroke="url(#ic' + uid + ')" stroke-width="2.4" stroke-linecap="round">'
+      + '    <path d="M40 55 L64 40 L88 55 L112 40 L136 55 L160 40"/>'
+      + '  </g>'
+      + '  <g fill="none" stroke="#5c4c22" stroke-width="10" stroke-linecap="round">'
+      + '    <path d="M40 96 Q68 84 90 96"/>'
+      + '    <path d="M110 96 Q132 84 160 96"/>'
+      + '  </g>'
+      + '  <g fill="url(#ic' + uid + ')">'
+      + '    <circle cx="40" cy="55" r="5"/><circle cx="64" cy="40" r="5"/><circle cx="88" cy="55" r="5"/>'
+      + '    <circle cx="112" cy="40" r="5"/><circle cx="136" cy="55" r="5"/><circle cx="160" cy="40" r="5"/>'
+      + '    <circle cx="100" cy="88" r="6"/>'
+      + '  </g>', uid);
+  }
+
+  /* CNS Research — neuron with dendrites firing across a synapse */
+  function iconCNS(uid){
+    return iconWrap(''
+      + '  <g fill="none" stroke="url(#ic' + uid + ')" stroke-width="2.2" stroke-linecap="round">'
+      + '    <path d="M55 75 L30 55 M55 75 L28 75 M55 75 L32 96 M55 75 L48 50"/>'
+      + '    <path d="M55 75 L140 75"/>'
+      + '    <path d="M140 75 L165 55 M140 75 L167 75 M140 75 L163 96 M140 75 L147 50"/>'
+      + '  </g>'
+      + '  <circle cx="55" cy="75" r="13" fill="none" stroke="url(#ic' + uid + ')" stroke-width="2.4"/>'
+      + '  <circle cx="140" cy="75" r="9" fill="none" stroke="url(#ic' + uid + ')" stroke-width="2.4"/>'
+      + '  <g fill="#e3c374"><circle cx="90" cy="75" r="2.6"/><circle cx="105" cy="75" r="2.6"/><circle cx="120" cy="75" r="2.6"/></g>', uid);
+  }
+
+  /* Dermal Research — layered skin cross-section with a collagen helix */
+  function iconDermal(uid){
+    return iconWrap(''
+      + '  <g fill="none" stroke="#5c4c22" stroke-width="1.4">'
+      + '    <path d="M20 45 Q100 30 180 45"/>'
+      + '    <path d="M20 80 Q100 65 180 80"/>'
+      + '    <path d="M20 115 Q100 100 180 115"/>'
+      + '  </g>'
+      + '  <path d="M96 48 C110 55 82 62 96 69 C110 76 82 83 96 90 C110 97 82 104 96 111" fill="none" stroke="url(#ic' + uid + ')" stroke-width="2.6" stroke-linecap="round"/>', uid);
+  }
+
+  /* Endocrine Research — gland releasing hormone signal to a target cell */
+  function iconEndocrine(uid){
+    return iconWrap(''
+      + '  <path d="M48 50 C60 50 64 62 60 70 C56 78 50 80 48 92 C46 80 40 78 36 70 C32 62 36 50 48 50 Z" fill="url(#ic' + uid + ')"/>'
+      + '  <path d="M64 75 L150 75" stroke="url(#ic' + uid + ')" stroke-width="2" fill="none" stroke-linecap="round"/>'
+      + '  <g fill="#e3c374"><circle cx="90" cy="75" r="3.6"/><circle cx="112" cy="75" r="3.6"/><circle cx="134" cy="75" r="3.6"/></g>'
+      + '  <circle cx="165" cy="75" r="15" fill="none" stroke="url(#ic' + uid + ')" stroke-width="2.4"/>'
+      + '  <circle cx="165" cy="75" r="5" fill="url(#ic' + uid + ')"/>', uid);
+  }
+
+  /* Specialty Research — precision receptor targeting */
+  function iconSpecialty(uid){
+    return iconWrap(''
+      + '  <circle cx="100" cy="75" r="42" fill="none" stroke="url(#ic' + uid + ')" stroke-width="2"/>'
+      + '  <circle cx="100" cy="75" r="26" fill="none" stroke="#5c4c22" stroke-width="1.4"/>'
+      + '  <g stroke="url(#ic' + uid + ')" stroke-width="2.2" stroke-linecap="round">'
+      + '    <path d="M100 22 L100 34 M100 116 L100 128 M47 75 L59 75 M141 75 L153 75"/>'
+      + '    <path d="M90 75 L106 66 M90 75 L106 84"/>'
+      + '  </g>'
+      + '  <g fill="url(#ic' + uid + ')"><circle cx="90" cy="75" r="4.2"/><circle cx="106" cy="66" r="4.2"/><circle cx="106" cy="84" r="4.2"/></g>', uid);
+  }
+
+  var blogIcons = {
+    'Metabolic Research': iconMetabolic,
+    'CNS Research': iconCNS,
+    'Dermal Research': iconDermal,
+    'Endocrine Research': iconEndocrine,
+    'Specialty Research': iconSpecialty
+  };
+  function blogIconSVG(category){
+    var uid = 'bi' + (iconUid++);
+    var fn = blogIcons[category];
+    return fn ? fn(uid) : null;
+  }
+
   window.Aurum = { qs:qs, qsa:qsa, getParam:getParam, formatPrice:formatPrice, initAgeGate:initAgeGate,
-    initAccordion:initAccordion, initTabs:initTabs, showToast:showToast, vialSVG:vialSVG };
+    initAccordion:initAccordion, initTabs:initTabs, showToast:showToast, vialSVG:vialSVG, blogIconSVG:blogIconSVG };
 
   document.addEventListener('DOMContentLoaded', function(){
     initAgeGate();
