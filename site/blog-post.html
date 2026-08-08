@@ -21,6 +21,7 @@
       <span class="kicker" id="artCat"></span>
       <h1 id="artTitle"></h1>
       <div class="article-meta"><span id="artDate"></span> &middot; <span id="artReadTime"></span> &middot; The Aurum Research Desk</div>
+      <img id="artHero" class="article-hero" src="" alt="" style="display:none;">
       <div id="artBody"></div>
     </article>
 
@@ -62,6 +63,12 @@
   document.getElementById('artTitle').textContent = post.title;
   document.getElementById('artDate').textContent = new Date(post.date).toLocaleDateString('en-AU', { year:'numeric', month:'long', day:'numeric' });
   document.getElementById('artReadTime').textContent = post.readTime;
+  if(post.image){
+    var hero = document.getElementById('artHero');
+    hero.src = post.image;
+    hero.alt = post.title;
+    hero.style.display = '';
+  }
   document.getElementById('artBody').innerHTML = post.body;
 
   var related = window.AURUM_BLOG_POSTS.filter(function(p){ return p.slug !== post.slug && p.category === post.category; }).slice(0,3);

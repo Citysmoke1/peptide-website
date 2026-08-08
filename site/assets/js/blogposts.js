@@ -4,6 +4,7 @@
 window.AURUM_BLOG_POSTS = [
   {
     slug:'glp1-gip-triple-agonists-weight-loss-research',
+    image:'assets/img/research-article-1.jpeg',
     title:'GLP-1, GIP & Triple Agonists: A Research Overview of Modern Weight-Loss Peptides',
     category:'Metabolic Research',
     readTime:'7 min read',
@@ -27,6 +28,7 @@ window.AURUM_BLOG_POSTS = [
   },
   {
     slug:'body-recomposition-research-fat-loss-muscle-gain',
+    image:'assets/img/research-article-2.jpeg',
     title:'Body Recomposition Research: Peptides Studied for Fat Loss & Lean Mass',
     category:'Metabolic Research',
     readTime:'8 min read',
@@ -49,6 +51,7 @@ window.AURUM_BLOG_POSTS = [
   },
   {
     slug:'sleep-architecture-peptide-research',
+    image:'assets/img/research-article-3.jpeg',
     title:'Peptides in Sleep Architecture Research: DSIP, CJC-1295 & More',
     category:'CNS Research',
     readTime:'6 min read',
@@ -71,6 +74,7 @@ window.AURUM_BLOG_POSTS = [
   },
   {
     slug:'stress-response-peptide-research-selank-dsip',
+    image:'assets/img/research-article-1.jpeg',
     title:'Selank, DSIP & the Gut-Brain Axis: Peptide Research for Stress Pathways',
     category:'CNS Research',
     readTime:'7 min read',
@@ -93,6 +97,7 @@ window.AURUM_BLOG_POSTS = [
   },
   {
     slug:'pt-141-melanocortin-system-research-primer',
+    image:'assets/img/research-article-2.jpeg',
     title:'PT-141 and the Melanocortin System: A Research Primer',
     category:'Specialty Research',
     readTime:'5 min read',
@@ -113,6 +118,7 @@ window.AURUM_BLOG_POSTS = [
   },
   {
     slug:'ghk-cu-tb-500-hair-follicle-research',
+    image:'assets/img/research-article-3.jpeg',
     title:'GHK-Cu & TB-500 in Hair Follicle Research',
     category:'Dermal Research',
     readTime:'6 min read',
@@ -135,6 +141,7 @@ window.AURUM_BLOG_POSTS = [
   },
   {
     slug:'pigmentation-pathway-research-glutathione-ghk-cu-kpv',
+    image:'assets/img/research-article-1.jpeg',
     title:'The Tyrosinase Pathway: Glutathione & Copper Peptide Research for Skin Brightening',
     category:'Dermal Research',
     readTime:'6 min read',
@@ -155,6 +162,7 @@ window.AURUM_BLOG_POSTS = [
   },
   {
     slug:'collagen-elastin-dermal-elasticity-research',
+    image:'assets/img/research-article-2.jpeg',
     title:'Collagen & Elastin: Peptide Research for Dermal Elasticity',
     category:'Dermal Research',
     readTime:'6 min read',
@@ -175,6 +183,7 @@ window.AURUM_BLOG_POSTS = [
   },
   {
     slug:'scar-remodelling-post-acne-pigmentation-research',
+    image:'assets/img/research-article-3.jpeg',
     title:'Peptide Research in Scar Remodelling & Post-Acne Pigmentation',
     category:'Dermal Research',
     readTime:'6 min read',
@@ -197,6 +206,7 @@ window.AURUM_BLOG_POSTS = [
   },
   {
     slug:'mots-c-mitochondrial-peptide-ampk-research',
+    image:'assets/img/research-article-1.jpeg',
     title:'MOTS-c: Mitochondrial-Derived Peptide Research & the AMPK Pathway',
     category:'Metabolic Research',
     readTime:'6 min read',
@@ -217,6 +227,7 @@ window.AURUM_BLOG_POSTS = [
   },
   {
     slug:'inside-klow-four-compound-research-blend',
+    image:'assets/img/research-article-2.jpeg',
     title:'Inside KLOW: A Four-Compound Research Blend for Tissue Repair',
     category:'Product Deep-Dive',
     readTime:'5 min read',
@@ -242,6 +253,7 @@ window.AURUM_BLOG_POSTS = [
   },
   {
     slug:'hgh-hcg-reference-standards-endocrine-research',
+    image:'assets/img/research-article-3.jpeg',
     title:'HGH & HCG: Foundational Reference Standards in Endocrine Research',
     category:'Endocrine Research',
     readTime:'6 min read',
@@ -262,6 +274,7 @@ window.AURUM_BLOG_POSTS = [
   },
   {
     slug:'cjc-1295-ipamorelin-ghrh-ghrp-synergy-research',
+    image:'assets/img/research-article-1.jpeg',
     title:'CJC-1295 & Ipamorelin: Understanding GHRH/GHRP Synergy in Research Models',
     category:'Endocrine Research',
     readTime:'7 min read',
