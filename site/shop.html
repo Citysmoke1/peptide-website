@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop All Peptides | The Aurum Peptide Co</title>
+<meta name="description" content="Browse our full range of research peptides and oral capsules — weight loss, growth hormone, skin, cognitive and more. Third-party tested.">
+<link rel="icon" href="assets/img/logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="shop" data-root="">
+
+<div id="site-header"></div>
+
+<div class="page-banner">
+  <h1>Shop All Peptides</h1>
+  <p>High-purity research peptides and oral capsules, batch-tested and ready to dispatch.</p>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Shop All Peptides</div>
+    <div class="shop-layout">
+      <aside class="filter-panel">
+        <h4>Search</h4>
+        <div class="filter-group">
+          <input type="search" id="searchInput" placeholder="Search products...">
+        </div>
+        <h4>Format</h4>
+        <div class="filter-group" id="formFilters">
+          <label class="filter-option"><input type="radio" name="form" value="all" checked> All Formats</label>
+          <label class="filter-option"><input type="radio" name="form" value="Injectable"> Injectable</label>
+          <label class="filter-option"><input type="radio" name="form" value="Capsule"> Oral Capsule</label>
+        </div>
+        <h4>Category</h4>
+        <div class="filter-group" id="categoryFilters"></div>
+        <h4>Sort By</h4>
+        <div class="filter-group">
+          <select id="sortSelect">
+            <option value="featured">Featured</option>
+            <option value="az">Name: A&ndash;Z</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+          </select>
+        </div>
+      </aside>
+      <div>
+        <div class="shop-toolbar">
+          <span class="count" id="resultCount"></span>
+        </div>
+        <div class="grid grid-3" id="productGrid"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/products.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/header.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/render.js"></script>
+<script src="assets/js/footer.js"></script>
+<script>
+(function(){
+  var Q = window.Aurum;
+  var grid = document.getElementById('productGrid');
+  var countEl = document.getElementById('resultCount');
+  var catWrap = document.getElementById('categoryFilters');
+
+  catWrap.innerHTML = window.AURUM_CATEGORIES.map(function(c){
+    return '<label class="filter-option"><input type="checkbox" class="catCheck" value="' + c.key + '"> ' + c.label + '</label>';
+  }).join('');
+
+  var initialCat = Q.getParam('category');
+  if(initialCat){
+    var box = catWrap.querySelector('input[value="' + initialCat + '"]');
+    if(box) box.checked = true;
+  }
+
+  function currentFilters(){
+    var formVal = document.querySelector('input[name="form"]:checked').value;
+    var checkedCats = Array.prototype.slice.call(catWrap.querySelectorAll('input:checked')).map(function(i){ return i.value; });
+    var search = document.getElementById('searchInput').value.trim().toLowerCase();
+    var sort = document.getElementById('sortSelect').value;
+    return { formVal:formVal, checkedCats:checkedCats, search:search, sort:sort };
+  }
+
+  function apply(){
+    var f = currentFilters();
+    var list = window.AURUM_PRODUCTS.filter(function(p){
+      if(f.formVal !== 'all' && p.form !== f.formVal) return false;
+      if(f.checkedCats.length && f.checkedCats.indexOf(p.category) === -1) return false;
+      if(f.search && p.name.toLowerCase().indexOf(f.search) === -1 && p.shortDesc.toLowerCase().indexOf(f.search) === -1) return false;
+      return true;
+    });
+    if(f.sort === 'az'){ list.sort(function(a,b){ return a.name.localeCompare(b.name); }); }
+    else if(f.sort === 'price-low'){ list.sort(function(a,b){ return window.AURUM_minPrice(a) - window.AURUM_minPrice(b); }); }
+    else if(f.sort === 'price-high'){ list.sort(function(a,b){ return window.AURUM_minPrice(b) - window.AURUM_minPrice(a); }); }
+    else { list.sort(function(a,b){ return (b.badge?1:0) - (a.badge?1:0); }); }
+
+    countEl.textContent = list.length + ' product' + (list.length === 1 ? '' : 's');
+    if(list.length){
+      window.AurumRender.productGrid(grid, list);
+    } else {
+      grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1;"><div class="ic">&#128269;</div><h3>No products match your filters</h3><p class="muted">Try clearing a filter or search term.</p></div>';
+    }
+  }
+
+  document.querySelectorAll('input[name="form"]').forEach(function(r){ r.addEventListener('change', apply); });
+  catWrap.querySelectorAll('input').forEach(function(c){ c.addEventListener('change', apply); });
+  document.getElementById('searchInput').addEventListener('input', apply);
+  document.getElementById('sortSelect').addEventListener('change', apply);
+
+  apply();
+})();
+</script>
+</body>
+</html>

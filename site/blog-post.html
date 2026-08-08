@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Article | The Aurum Peptide Co</title>
+<meta name="description" id="pageDesc" content="Research article">
+<link rel="icon" href="assets/img/logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="blog" data-root="">
+
+<div id="site-header"></div>
+
+<section class="section" id="articleSection" style="display:none;">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <a href="blog.html">Blog</a> / <span id="crumbTitle"></span></div>
+    <article class="article">
+      <span class="kicker" id="artCat"></span>
+      <h1 id="artTitle"></h1>
+      <div class="article-meta"><span id="artDate"></span> &middot; <span id="artReadTime"></span> &middot; The Aurum Research Desk</div>
+      <div id="artBody"></div>
+    </article>
+
+    <div class="related">
+      <div class="shop-toolbar"><h2 style="margin-bottom:0;">More Research Articles</h2></div>
+      <div class="grid grid-3" id="relatedPosts"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section empty-state" id="notFoundSection" style="display:none;">
+  <div class="ic">&#128220;</div>
+  <h2>Article Not Found</h2>
+  <a href="blog.html" class="btn btn-primary">Back to Blog</a>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/products.js"></script>
+<script src="assets/js/blogposts.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/header.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/render.js"></script>
+<script src="assets/js/footer.js"></script>
+<script>
+(function(){
+  var Q = window.Aurum;
+  var slug = Q.getParam('slug');
+  var post = window.AURUM_getBlogPost(slug);
+  if(!post){ document.getElementById('notFoundSection').style.display = 'block'; return; }
+
+  document.getElementById('articleSection').style.display = 'block';
+  document.title = post.title + ' | The Aurum Peptide Co';
+  document.getElementById('pageDesc').setAttribute('content', post.excerpt);
+  document.getElementById('crumbTitle').textContent = post.title;
+  document.getElementById('artCat').textContent = post.category;
+  document.getElementById('artTitle').textContent = post.title;
+  document.getElementById('artDate').textContent = new Date(post.date).toLocaleDateString('en-AU', { year:'numeric', month:'long', day:'numeric' });
+  document.getElementById('artReadTime').textContent = post.readTime;
+  document.getElementById('artBody').innerHTML = post.body;
+
+  var related = window.AURUM_BLOG_POSTS.filter(function(p){ return p.slug !== post.slug && p.category === post.category; }).slice(0,3);
+  if(related.length < 3){
+    var extra = window.AURUM_BLOG_POSTS.filter(function(p){ return p.slug !== post.slug && related.indexOf(p) === -1; }).slice(0, 3 - related.length);
+    related = related.concat(extra);
+  }
+  window.AurumRender.blogGrid(document.getElementById('relatedPosts'), related);
+})();
+</script>
+</body>
+</html>

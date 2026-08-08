@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | The Aurum Peptide Co</title>
+<meta name="description" content="Get in touch with The Aurum Peptide Co via email, WhatsApp, Telegram, Discord or our contact form.">
+<link rel="icon" href="assets/img/logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="contact" data-root="">
+
+<div id="site-header"></div>
+
+<div class="page-banner">
+  <h1>Contact Us</h1>
+  <p>Questions about an order, a product, or research applications? We're a message away.</p>
+</div>
+
+<section class="section">
+  <div class="container two-col">
+    <div>
+      <span class="kicker">Reach Us Directly</span>
+      <h2>Chat With Our Team</h2>
+      <p class="muted">Fastest response is usually via WhatsApp or Telegram during business hours (9am&ndash;5pm AEST, Mon&ndash;Fri).</p>
+      <div style="display:flex;flex-direction:column;gap:14px;margin-top:24px;" id="contactChannels"></div>
+    </div>
+    <form class="form-card" id="contactForm" novalidate>
+      <div class="form-row-2">
+        <div class="form-row">
+          <label for="cName">Full Name *</label>
+          <input type="text" id="cName" name="name" required>
+        </div>
+        <div class="form-row">
+          <label for="cEmail">Email Address *</label>
+          <input type="email" id="cEmail" name="email" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="cSubject">Subject *</label>
+        <select id="cSubject" name="subject" required>
+          <option value="">Select a topic...</option>
+          <option>Order Enquiry</option>
+          <option>Product Question</option>
+          <option>Shipping / Tracking</option>
+          <option>Returns / Refunds</option>
+          <option>Wholesale / Bulk Enquiry</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="cMessage">Message *</label>
+        <textarea id="cMessage" name="message" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+      <div class="form-success" id="formSuccess">Thanks for reaching out — we'll reply to your email within 1 business day.</div>
+    </form>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/header.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/footer.js"></script>
+<script>
+(function(){
+  var cfg = window.AURUM_CONFIG;
+  var channels = [
+    { label:'Email', value:cfg.businessEmail, href:'mailto:' + cfg.businessEmail, icon:'&#9993;' },
+    { label:'WhatsApp', value:'Chat with us', href:cfg.social.whatsapp, icon:'&#128241;' },
+    { label:'Telegram', value:'Message us', href:cfg.social.telegram, icon:'&#9992;' },
+    { label:'Discord', value:'Join our server', href:cfg.social.discord, icon:'&#128172;' }
+  ];
+  document.getElementById('contactChannels').innerHTML = channels.map(function(c){
+    return '<a href="' + c.href + '" target="_blank" rel="noopener" class="card" style="display:flex;align-items:center;gap:16px;padding:18px 20px;">'
+      + '<span style="font-size:1.4rem;">' + c.icon + '</span>'
+      + '<span><strong style="display:block;">' + c.label + '</strong><span class="muted" style="font-size:.85rem;">' + c.value + '</span></span>'
+      + '</a>';
+  }).join('');
+
+  /* No backend yet — replace with supabase.from('contact_messages').insert({...}) once connected. */
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!this.checkValidity()){ this.reportValidity(); return; }
+    document.getElementById('formSuccess').classList.add('show');
+    this.reset();
+    window.Aurum.showToast('Message sent — thank you!');
+  });
+})();
+</script>
+</body>
+</html>

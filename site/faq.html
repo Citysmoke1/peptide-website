@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ | The Aurum Peptide Co</title>
+<meta name="description" content="Frequently asked questions about ordering, shipping, storage and research-use compliance.">
+<link rel="icon" href="assets/img/logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="faq" data-root="">
+
+<div id="site-header"></div>
+
+<div class="page-banner">
+  <h1>Frequently Asked Questions</h1>
+  <p>Everything you need to know about ordering, shipping, storage and compliance.</p>
+</div>
+
+<section class="section">
+  <div class="container" style="max-width:840px;">
+
+    <h3 class="gold" style="text-transform:uppercase;font-size:.8rem;letter-spacing:.08em;font-family:var(--font-body);margin-top:0;">Ordering &amp; Products</h3>
+    <div id="accOrdering"></div>
+
+    <h3 class="gold" style="text-transform:uppercase;font-size:.8rem;letter-spacing:.08em;font-family:var(--font-body);margin-top:44px;">Shipping &amp; Storage</h3>
+    <div id="accShipping"></div>
+
+    <h3 class="gold" style="text-transform:uppercase;font-size:.8rem;letter-spacing:.08em;font-family:var(--font-body);margin-top:44px;">Legal &amp; Compliance</h3>
+    <div id="accLegal"></div>
+
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <span class="kicker on-dark">Still Have Questions?</span>
+    <h2>Talk to a Real Person</h2>
+    <p>Our team responds via email, WhatsApp, Telegram and Discord during business hours.</p>
+    <a href="contact.html" class="btn btn-gold">Contact Us</a>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/header.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/footer.js"></script>
+<script>
+(function(){
+  function buildAccordion(container, items){
+    container.innerHTML = items.map(function(it){
+      return '<div class="accordion-item">'
+        + '<button class="accordion-btn">' + it.q + '<span class="plus">+</span></button>'
+        + '<div class="accordion-panel"><div class="inner">' + it.a + '</div></div>'
+        + '</div>';
+    }).join('');
+  }
+
+  buildAccordion(document.getElementById('accOrdering'), [
+    { q:'Who can purchase from The Aurum Peptide Co?', a:'Our products are sold exclusively to qualified researchers and laboratories aged 18 and over, for in-vitro research purposes only. By placing an order you confirm you meet these requirements — see our <a href="terms.html">Terms &amp; Legal Disclaimer</a>.' },
+    { q:'Are your products tested for purity?', a:'Yes. Every batch is independently tested for identity and purity before release. Results are published in our <a href="coa-library.html">CoA Library</a>, searchable by product and batch number.' },
+    { q:'Can I request a peptide that isn\'t listed?', a:'Absolutely — use our <a href="request-product.html">Request a Product</a> form and we\'ll do our best to source it for a future batch.' },
+    { q:'Do you sell oral capsules as well as injectable vials?', a:'Yes, we carry a growing range of oral research capsules (single-compound and multi-compound blends) alongside our injectable reference-standard range — filter by "Oral Capsule" on the Shop page.' },
+    { q:'How do I pay for an order?', a:'At checkout you submit an order enquiry with your desired products and shipping details; our team follows up directly with available payment options and an invoice.' }
+  ]);
+
+  buildAccordion(document.getElementById('accShipping'), [
+    { q:'How fast do you dispatch orders?', a:'Orders placed before 2PM AEST on a business day are dispatched same-day. See our <a href="shipping-policy.html">Shipping Policy</a> for full carrier and timeframe details.' },
+    { q:'Do you ship discreetly?', a:'Yes — all parcels are packed in plain, unbranded packaging with no reference to the contents on the exterior.' },
+    { q:'How should I store my products on arrival?', a:'Lyophilised (freeze-dried) products should be stored refrigerated or frozen away from light per the label; once reconstituted, most compounds should be refrigerated at 2-8°C and used within the window noted on the product page and CoA. Never refreeze a reconstituted solution.' },
+    { q:'How can I track my order?', a:'Use our <a href="track-order.html">Track Your Order</a> page with your order number and email address once you\'ve received a dispatch confirmation.' }
+  ]);
+
+  buildAccordion(document.getElementById('accLegal'), [
+    { q:'Are these products intended for human use?', a:'No. All products are sold strictly for laboratory research use by qualified professionals. They are not drugs, foods, cosmetics or medical devices, and are not intended for human or animal consumption, diagnosis, treatment, cure or prevention of disease. See our full <a href="terms.html">Terms &amp; Legal Disclaimer</a>.' },
+    { q:'What is your returns policy?', a:'Due to the nature of laboratory reagents we cannot accept returns of opened or reconstituted products. See our <a href="returns-refunds.html">Returns &amp; Refunds</a> page for full conditions.' },
+    { q:'Is it legal to purchase research peptides in Australia?', a:'Regulations vary by compound and by state/territory. It is the purchaser\'s sole responsibility to determine the legality of purchase, possession and use of any product in their jurisdiction before ordering.' }
+  ]);
+
+  window.Aurum.initAccordion(document);
+})();
+</script>
+</body>
+</html>

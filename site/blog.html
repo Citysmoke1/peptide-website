@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Blog | The Aurum Peptide Co</title>
+<meta name="description" content="Research-literature summaries on metabolic, endocrine, dermal and CNS peptide mechanisms of action. Educational content for qualified researchers.">
+<link rel="icon" href="assets/img/logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="blog" data-root="">
+
+<div id="site-header"></div>
+
+<div class="page-banner">
+  <h1>The Research Blog</h1>
+  <p>Literature summaries and mechanism-of-action overviews for qualified researchers. Educational content only — not dosing or usage instructions.</p>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="shop-toolbar">
+      <span class="count" id="resultCount"></span>
+      <select id="catFilter" style="max-width:260px;">
+        <option value="all">All Categories</option>
+      </select>
+    </div>
+    <div class="grid grid-3" id="blogGrid"></div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/products.js"></script>
+<script src="assets/js/blogposts.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/header.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/render.js"></script>
+<script src="assets/js/footer.js"></script>
+<script>
+(function(){
+  var grid = document.getElementById('blogGrid');
+  var countEl = document.getElementById('resultCount');
+  var catFilter = document.getElementById('catFilter');
+  var cats = Array.from(new Set(window.AURUM_BLOG_POSTS.map(function(p){ return p.category; })));
+  cats.forEach(function(c){
+    var o = document.createElement('option'); o.value = c; o.textContent = c; catFilter.appendChild(o);
+  });
+
+  function apply(){
+    var val = catFilter.value;
+    var list = window.AURUM_BLOG_POSTS.filter(function(p){ return val === 'all' || p.category === val; });
+    countEl.textContent = list.length + ' article' + (list.length === 1 ? '' : 's');
+    window.AurumRender.blogGrid(grid, list);
+  }
+  catFilter.addEventListener('change', apply);
+  apply();
+})();
+</script>
+</body>
+</html>

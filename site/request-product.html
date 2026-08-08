@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request a Product | The Aurum Peptide Co</title>
+<meta name="description" content="Can't find the peptide or blend you need? Tell us and we'll try to source it for a future batch.">
+<link rel="icon" href="assets/img/logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="request" data-root="">
+
+<div id="site-header"></div>
+
+<div class="page-banner">
+  <h1>Request a Product</h1>
+  <p>Looking for a specific peptide, capsule or blend we don't stock yet? Let us know and we'll try to source it.</p>
+</div>
+
+<section class="section">
+  <div class="container" style="max-width:760px;">
+    <form class="form-card" id="requestForm" novalidate>
+      <div class="form-row-2">
+        <div class="form-row">
+          <label for="rName">Full Name *</label>
+          <input type="text" id="rName" name="name" required>
+        </div>
+        <div class="form-row">
+          <label for="rEmail">Email Address *</label>
+          <input type="email" id="rEmail" name="email" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="rProduct">Product / Compound Name *</label>
+        <input type="text" id="rProduct" name="product" placeholder="e.g. AOD-9604, Melanotan II..." required>
+      </div>
+      <div class="form-row-2">
+        <div class="form-row">
+          <label for="rFormat">Preferred Format</label>
+          <select id="rFormat" name="format">
+            <option>Injectable Vial</option>
+            <option>Oral Capsule</option>
+            <option>Either / No Preference</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="rQty">Approx. Quantity Needed</label>
+          <input type="text" id="rQty" name="quantity" placeholder="e.g. 10 vials / month">
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="rNotes">Additional Details</label>
+        <textarea id="rNotes" name="notes" placeholder="Any specification, concentration or research application details..."></textarea>
+      </div>
+      <div class="checkbox-row" style="margin-bottom:20px;">
+        <input type="checkbox" id="rConfirm" required>
+        <label for="rConfirm">I confirm I am 18+ and requesting this product strictly for lawful laboratory research purposes.</label>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Submit Request</button>
+      <div class="form-success" id="formSuccess">Thanks — your product request has been received. Our sourcing team will follow up by email if we're able to secure it.</div>
+    </form>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/header.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/footer.js"></script>
+<script>
+/* No backend yet — submission is handled locally. Once Supabase is connected,
+   replace this handler with supabase.from('product_requests').insert({...}). */
+document.getElementById('requestForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  if(!this.checkValidity()){ this.reportValidity(); return; }
+  document.getElementById('formSuccess').classList.add('show');
+  this.reset();
+  window.Aurum.showToast('Request submitted — thank you!');
+});
+</script>
+</body>
+</html>

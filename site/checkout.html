@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout | The Aurum Peptide Co</title>
+<meta name="description" content="Submit your order details to complete your Aurum Peptide Co purchase.">
+<link rel="icon" href="assets/img/logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="cart" data-root="">
+
+<div id="site-header"></div>
+
+<div class="page-banner"><h1>Checkout</h1><p>Submit your details and our team will confirm payment &amp; dispatch.</p></div>
+
+<section class="section">
+  <div class="container">
+
+    <div id="checkoutForm-wrap">
+      <div class="two-col" style="align-items:flex-start;">
+        <form class="form-card" id="checkoutForm" novalidate>
+          <h3 style="margin-top:0;">Shipping Details</h3>
+          <div class="form-row-2">
+            <div class="form-row"><label for="fName">Full Name *</label><input type="text" id="fName" required></div>
+            <div class="form-row"><label for="fEmail">Email Address *</label><input type="email" id="fEmail" required></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-row"><label for="fPhone">Phone *</label><input type="tel" id="fPhone" required></div>
+            <div class="form-row"><label for="fPostcode">Postcode *</label><input type="text" id="fPostcode" required></div>
+          </div>
+          <div class="form-row"><label for="fAddress">Street Address *</label><input type="text" id="fAddress" required></div>
+          <div class="form-row-2">
+            <div class="form-row"><label for="fCity">City / Suburb *</label><input type="text" id="fCity" required></div>
+            <div class="form-row"><label for="fState">State *</label><input type="text" id="fState" required></div>
+          </div>
+          <div class="form-row"><label for="fNotes">Order Notes (optional)</label><textarea id="fNotes"></textarea></div>
+          <div class="checkbox-row" style="margin-bottom:20px;">
+            <input type="checkbox" id="fConfirm" required>
+            <label for="fConfirm">I confirm I am 18+, purchasing strictly for laboratory research use, and I accept the <a href="terms.html" target="_blank">Terms &amp; Legal Disclaimer</a>.</label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Submit Order Enquiry</button>
+          <p class="form-note">This submits an order enquiry — no payment is taken on this page. Our team will follow up by email with available payment options (bank transfer / crypto) and a final invoice.</p>
+        </form>
+
+        <div class="summary-card">
+          <h3 style="margin-top:0;">Order Summary</h3>
+          <div id="checkoutItems"></div>
+          <div class="summary-row total"><span>Estimated Total</span><span id="checkoutTotal"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="checkoutSuccess" class="empty-state" style="display:none;">
+      <div class="ic">&#9989;</div>
+      <h2>Order Enquiry Received</h2>
+      <p class="muted">Your reference number is <strong id="orderRef"></strong>. We've noted your details and will email you shortly with payment instructions and a final invoice.</p>
+      <div class="hero-actions" style="justify-content:center;">
+        <a href="track-order.html" class="btn btn-primary">Track Your Order</a>
+        <a href="shop.html" class="btn btn-outline">Continue Shopping</a>
+      </div>
+    </div>
+
+    <div id="checkoutEmpty" class="empty-state" style="display:none;">
+      <div class="ic">&#128722;</div>
+      <h2>Your cart is empty</h2>
+      <a href="shop.html" class="btn btn-primary">Shop All Peptides</a>
+    </div>
+
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/products.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/header.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/footer.js"></script>
+<script>
+(function(){
+  var Q = window.Aurum;
+  var items = window.AurumCart.read();
+
+  if(!items.length){
+    document.getElementById('checkoutForm-wrap').style.display = 'none';
+    document.getElementById('checkoutEmpty').style.display = 'block';
+    return;
+  }
+
+  document.getElementById('checkoutItems').innerHTML = items.map(function(item){
+    var p = window.AURUM_getProduct(item.slug);
+    if(!p) return '';
+    return '<div class="summary-row"><span>' + p.name + ' (' + item.option + ') &times;' + item.qty + '</span><span>' + Q.formatPrice(item.price * item.qty) + '</span></div>';
+  }).join('');
+  document.getElementById('checkoutTotal').textContent = Q.formatPrice(window.AurumCart.subtotal());
+
+  /* No payment backend yet — this submits an order enquiry only.
+     Once Supabase is connected, replace with supabase.from('orders').insert({...}) plus a payment step. */
+  document.getElementById('checkoutForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!this.checkValidity()){ this.reportValidity(); return; }
+    var ref = 'QM-' + Math.floor(10000 + Math.random() * 89999);
+    document.getElementById('orderRef').textContent = ref;
+    document.getElementById('checkoutForm-wrap').style.display = 'none';
+    document.getElementById('checkoutSuccess').style.display = 'block';
+    window.AurumCart.clear();
+    window.scrollTo({ top:0, behavior:'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

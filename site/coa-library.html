@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CoA Library | The Aurum Peptide Co</title>
+<meta name="description" content="Search independent Certificate of Analysis (CoA) results for every batch we release.">
+<link rel="icon" href="assets/img/logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="coa" data-root="">
+
+<div id="site-header"></div>
+
+<div class="page-banner">
+  <h1>CoA Library</h1>
+  <p>Every batch we release is independently tested for identity and purity. Search below to find the Certificate of Analysis for your product.</p>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="shop-toolbar">
+      <input type="search" id="coaSearch" placeholder="Search by product or batch number..." style="max-width:360px;">
+      <span class="count" id="coaCount"></span>
+    </div>
+    <div class="callout warn" style="margin-bottom:26px;">
+      <strong>Preview data.</strong> The batch numbers and dates below are sample placeholders while our live lab-results integration is being connected — they do not yet correspond to real Certificates of Analysis. Every physical order still ships with its genuine batch-specific CoA attached; if you need a certificate now, <a href="contact.html" style="text-decoration:underline;">contact us</a> and we'll email it directly.
+    </div>
+    <div class="coa-table-wrap">
+      <table class="coa">
+        <thead>
+          <tr><th>Product</th><th>Batch No.</th><th>Test Date</th><th>Purity</th><th>Result</th><th>Certificate</th></tr>
+        </thead>
+        <tbody id="coaBody"></tbody>
+      </table>
+    </div>
+    <p class="muted" style="margin-top:18px;font-size:.85rem;">Can't find a batch number printed on your vial? <a href="contact.html" style="text-decoration:underline;">Contact us</a> and we'll email the certificate directly.</p>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/products.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/header.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/footer.js"></script>
+<script>
+(function(){
+  function hash(str){
+    var h = 0;
+    for(var i=0;i<str.length;i++){ h = (h*31 + str.charCodeAt(i)) >>> 0; }
+    return h;
+  }
+  function batchFor(slug){
+    var h = hash(slug);
+    var letters = 'QM';
+    var num = (h % 90000) + 10000;
+    return letters + '-' + num;
+  }
+  function dateFor(slug, idx){
+    var d = new Date(2026, 5, 1 + ((hash(slug) + idx) % 28));
+    return d.toLocaleDateString('en-AU', { year:'numeric', month:'short', day:'numeric' });
+  }
+
+  var rows = window.AURUM_PRODUCTS.map(function(p, idx){
+    return { product:p, batch: batchFor(p.slug), date: dateFor(p.slug, idx), purity: p.purity };
+  });
+
+  var body = document.getElementById('coaBody');
+  var countEl = document.getElementById('coaCount');
+  var search = document.getElementById('coaSearch');
+
+  function render(){
+    var term = search.value.trim().toLowerCase();
+    var filtered = rows.filter(function(r){
+      return !term || r.product.name.toLowerCase().indexOf(term) !== -1 || r.batch.toLowerCase().indexOf(term) !== -1;
+    });
+    countEl.textContent = filtered.length + ' batch record' + (filtered.length === 1 ? '' : 's');
+    body.innerHTML = filtered.map(function(r){
+      return '<tr>'
+        + '<td><a href="product.html?slug=' + r.product.slug + '" style="font-weight:700;">' + r.product.name + '</a></td>'
+        + '<td><span class="pill pill-batch">' + r.batch + '</span></td>'
+        + '<td>' + r.date + '</td>'
+        + '<td>' + r.purity + '</td>'
+        + '<td><span class="pill pill-pass">Pass</span></td>'
+        + '<td><a href="contact.html" class="btn btn-outline btn-sm">Request PDF</a></td>'
+        + '</tr>';
+    }).join('');
+  }
+  search.addEventListener('input', render);
+  render();
+})();
+</script>
+</body>
+</html>

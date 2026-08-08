@@ -1,0 +1,17 @@
+# Secrets / API keys
+api_keys/
+*.env
+.env
+.env.*
+*.pem
+*.key
+secrets.json
+credentials.json
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+
+# Claude Code local settings
+.claude/
