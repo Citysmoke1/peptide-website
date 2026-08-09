@@ -7,7 +7,7 @@ window.AurumRender = (function(){
     var badge = p.badge ? '<span class="badge">' + p.badge + '</span>' : '';
     return ''
       + '<a href="' + root + 'product.html?slug=' + p.slug + '" class="card product-card">'
-      + '  <div class="product-media">' + badge + '<img class="product-photo" src="' + root + 'assets/img/peptide-vial.webp" alt="' + p.name + '" loading="lazy"></div>'
+      + '  <div class="product-media">' + badge + '<img class="product-photo" src="' + root + (p.photo || 'assets/img/peptide-vial.webp') + '" alt="' + p.name + '" loading="lazy"></div>'
       + '  <div class="product-body">'
       + '    <span class="product-cat">' + window.AURUM_getCategoryLabel(p.category) + '</span>'
       + '    <h3>' + p.name + '</h3>'

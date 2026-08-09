@@ -16,6 +16,7 @@ window.AURUM_CATEGORIES = [
 window.AURUM_PRODUCTS = [
   {
     slug:'bpc-157', name:'BPC-157', form:'Injectable', category:'growth-recovery', badge:'Best Seller', purity:'99%+ HPLC',
+    photo:'assets/img/products/bpc-157.jpeg',
     shortDesc:'Body-protective compound studied for gut, tendon and soft-tissue repair models.',
     description:[
       "BPC-157 (Body Protection Compound-157) is a synthetic pentadecapeptide derived from a naturally occurring protective protein found in gastric juice. It is one of the most widely referenced peptides in soft-tissue and gastrointestinal repair literature.",
@@ -27,6 +28,7 @@ window.AURUM_PRODUCTS = [
   },
   {
     slug:'tb-500', name:'TB-500', form:'Injectable', category:'growth-recovery', badge:null, purity:'99%+ HPLC',
+    photo:'assets/img/products/tb-500.jpeg',
     shortDesc:'Thymosin Beta-4 fragment studied for angiogenesis and cell-migration research.',
     description:[
       "TB-500 is a synthetic fragment of Thymosin Beta-4, a naturally occurring peptide involved in actin regulation and cell migration. It is a core reference compound in tissue-repair and regenerative research literature.",
@@ -37,73 +39,8 @@ window.AURUM_PRODUCTS = [
     options:[ {label:'5mg vial', price:93.60}, {label:'10mg vial', price:172.80} ]
   },
   {
-    slug:'cjc-1295', name:'CJC-1295 (No DAC)', form:'Injectable', category:'growth-recovery', badge:null, purity:'99%+ HPLC',
-    shortDesc:'GHRH analogue studied for pulsatile growth-hormone secretion research.',
-    description:[
-      "CJC-1295 without DAC (also referenced as Mod GRF 1-29) is a synthetic analogue of growth hormone-releasing hormone (GHRH). Its short half-life makes it a common reference compound for studying pulsatile GH release patterns.",
-      "It is frequently paired with a GHRP such as Ipamorelin in comparative endocrinology research to examine synergistic GH and IGF-1 axis activity in vitro."
-    ],
-    researchApplications:['GHRH receptor activity studies','Pulsatile GH secretion modelling','Combination studies with GHRP analogues','IGF-1 axis research'],
-    specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'Lyophilised: 2-8°C, dark. Reconstituted: 2-8°C, use within 28 days. Do not freeze.' },
-    options:[ {label:'2mg vial', price:44.95}, {label:'5mg vial', price:105.60} ]
-  },
-  {
-    slug:'ipamorelin', name:'Ipamorelin', form:'Injectable', category:'growth-recovery', badge:null, purity:'99%+ HPLC',
-    shortDesc:'Selective GHRP studied for its clean ghrelin-receptor agonism profile.',
-    description:[
-      "Ipamorelin is a pentapeptide ghrelin-receptor agonist (GHRP) noted in the literature for a highly selective GH-secretagogue profile with minimal reported cross-reactivity at cortisol or prolactin receptors, making it a popular reference compound for selectivity studies.",
-      "Commonly modelled alongside CJC-1295 to investigate synergistic pulsatile growth-hormone release."
-    ],
-    researchApplications:['Ghrelin receptor selectivity studies','GH secretagogue comparative research','Combination protocol modelling with GHRH analogues'],
-    specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'Lyophilised: 2-8°C, dark. Reconstituted: 2-8°C, use within 28 days. Do not freeze.' },
-    options:[ {label:'2mg vial', price:34.80}, {label:'5mg vial', price:49.20} ]
-  },
-  {
-    slug:'cjc-ipa-blend', name:'CJC-1295 + Ipamorelin Blend', form:'Injectable', category:'growth-recovery', badge:'Popular', purity:'99%+ HPLC',
-    shortDesc:'Pre-blended GHRH/GHRP combination for comparative GH-axis research.',
-    description:[
-      "A pre-mixed 1:1 blend of CJC-1295 (No DAC) and Ipamorelin, formulated for researchers studying combined GHRH/GHRP receptor activity without separately reconstituting two vials.",
-      "Used extensively in published in-vitro literature examining synergistic growth-hormone pulse amplitude versus either compound in isolation."
-    ],
-    researchApplications:['Synergistic GHRH + GHRP modelling','Growth hormone pulse-amplitude comparison studies'],
-    specs:{ appearance:'White lyophilised powder blend', reconstitution:'Bacteriostatic water', storage:'Lyophilised: 2-8°C, dark. Reconstituted: 2-8°C, use within 28 days. Do not freeze.' },
-    options:[ {label:'5mg+5mg vial', price:151.20}, {label:'10mg+10mg vial', price:129.95} ]
-  },
-  {
-    slug:'tesamorelin', name:'Tesamorelin (TSM)', form:'Injectable', category:'weight-loss', badge:null, purity:'99%+ HPLC',
-    shortDesc:'44-amino-acid GHRH analogue studied for visceral-fat and IGF-1 research.',
-    description:[
-      "Tesamorelin is a stabilised 44-amino-acid analogue of growth hormone-releasing hormone. It is the most extensively published GHRH analogue in visceral adipose tissue research literature.",
-      "Laboratory models have examined Tesamorelin's role in stimulating pulsatile endogenous GH release, downstream IGF-1 elevation, and associated effects on lipid metabolism markers."
-    ],
-    researchApplications:['Visceral adipose tissue research models','IGF-1 axis studies','Lipid metabolism marker research'],
-    specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'Lyophilised: 2-8°C, dark. Reconstituted: 2-8°C, use within 20 days. Do not freeze.' },
-    options:[ {label:'5mg vial', price:105.60}, {label:'10mg vial', price:172.80} ]
-  },
-  {
-    slug:'hgh', name:'HGH (Somatropin)', form:'Injectable', category:'growth-recovery', badge:null, purity:'≥99% Biological Activity',
-    shortDesc:'Recombinant human growth hormone reference standard for endocrine research.',
-    description:[
-      "Recombinant HGH (somatropin) is a reference-grade 191-amino-acid protein identical in sequence to endogenous human growth hormone, widely used as a comparator standard in endocrinology and cell-proliferation assays.",
-      "Supplied as lyophilised powder for laboratory reconstitution and controlled in-vitro dosing series."
-    ],
-    researchApplications:['Cell proliferation & IGF-1 assays','Comparator standard for GH-secretagogue studies','Metabolic marker research'],
-    specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'Lyophilised: 2-8°C, dark. Reconstituted: 2-8°C, use within 14 days. Do not freeze.' },
-    options:[ {label:'10IU vial', price:54.00}, {label:'100IU kit (10 vials)', price:540.00} ]
-  },
-  {
-    slug:'hcg', name:'HCG', form:'Injectable', category:'hormonal', badge:null, purity:'≥99% Biological Activity',
-    shortDesc:'Human chorionic gonadotropin reference standard for gonadal-axis research.',
-    description:[
-      "Human Chorionic Gonadotropin (HCG) is a glycoprotein hormone widely used as a reference standard in reproductive endocrinology research, including gonadal-axis signalling and steroidogenesis pathway studies.",
-      "Supplied lyophilised for precise laboratory reconstitution to researcher-defined concentrations."
-    ],
-    researchApplications:['Gonadal-axis signalling studies','Steroidogenesis pathway research','Fertility-model laboratory studies'],
-    specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'Lyophilised: 2-8°C, dark. Reconstituted: 2-8°C, use within 14 days. Do not freeze.' },
-    options:[ {label:'5000IU vial', price:84.00} ]
-  },
-  {
     slug:'retatrutide', name:'Retatrutide (RETA)', form:'Injectable', category:'weight-loss', badge:'Popular', purity:'99%+ HPLC',
+    photo:'assets/img/products/retatrutide.jpeg',
     shortDesc:'Triple GIP/GLP-1/glucagon receptor agonist — leading metabolic research compound.',
     description:[
       "Retatrutide is a triple receptor agonist engaging GIP, GLP-1 and glucagon receptors simultaneously, and is currently one of the most cited compounds in metabolic and obesity-model research literature.",
@@ -114,29 +51,8 @@ window.AURUM_PRODUCTS = [
     options:[ {label:'10mg vial', price:110.40}, {label:'30mg vial', price:237.60} ]
   },
   {
-    slug:'tirzepatide', name:'Tirzepatide', form:'Injectable', category:'weight-loss', badge:'Popular', purity:'99%+ HPLC',
-    shortDesc:'Dual GIP/GLP-1 receptor agonist reference standard for metabolic studies.',
-    description:[
-      "Tirzepatide is a dual GIP/GLP-1 receptor agonist widely referenced in incretin-pathway and glycaemic-control research literature.",
-      "Supplied as high-purity lyophilised powder suitable for researcher-controlled in-vitro dose-response series."
-    ],
-    researchApplications:['Incretin receptor pathway studies','Glycaemic control marker research','Dose-response modelling'],
-    specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'Lyophilised: 2-8°C, dark. Reconstituted: 2-8°C, use within 28 days. Do not freeze.' },
-    options:[ {label:'30mg vial', price:135.60}, {label:'60mg vial', price:219.60} ]
-  },
-  {
-    slug:'liraglutide', name:'Liraglutide', form:'Injectable', category:'weight-loss', badge:null, purity:'99%+ HPLC',
-    shortDesc:'Long-acting GLP-1 receptor agonist reference compound.',
-    description:[
-      "Liraglutide is a long-acting GLP-1 receptor agonist commonly referenced as a comparator standard in appetite-regulation and glycaemic research.",
-      "Its well-characterised pharmacokinetic profile makes it a frequent benchmark against newer multi-agonist compounds in comparative studies."
-    ],
-    researchApplications:['GLP-1 receptor comparator studies','Appetite-regulation pathway research'],
-    specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'Lyophilised: 2-8°C, dark. Reconstituted: 2-8°C, use within 28 days. Do not freeze.' },
-    options:[ {label:'10mg vial', price:381.60} ]
-  },
-  {
     slug:'mots-c', name:'MOTS-c', form:'Injectable', category:'weight-loss', badge:null, purity:'99%+ HPLC',
+    photo:'assets/img/products/mots-c.jpeg',
     shortDesc:'Mitochondrial-derived peptide studied for AMPK pathway & metabolic research.',
     description:[
       "MOTS-c is a 16-amino-acid mitochondrial-derived peptide identified from the mitochondrial genome, extensively referenced in AMPK-pathway and metabolic homeostasis literature.",
@@ -147,29 +63,8 @@ window.AURUM_PRODUCTS = [
     options:[ {label:'5mg vial', price:69.95}, {label:'10mg vial', price:84.00} ]
   },
   {
-    slug:'lc120', name:'LC120 Lipotropic Blend', form:'Injectable', category:'weight-loss', badge:null, purity:'Research Blend',
-    shortDesc:'B12-free lipotropic compound blend for hepatic lipid-metabolism research.',
-    description:[
-      "LC120 is a lipotropic reference blend (L-Carnitine / Methionine / Inositol / Choline-class compounds) formulated without B12 for researchers studying hepatic lipid mobilisation pathways without a cobalamin confound.",
-      "Frequently used alongside GLP-1 class compounds in comparative metabolic research designs."
-    ],
-    researchApplications:['Hepatic lipid mobilisation studies','Comparative metabolic research designs'],
-    specs:{ appearance:'Clear to pale yellow solution / lyophilised blend', reconstitution:'Bacteriostatic water', storage:'2-8°C, dark. Use within 14 days of reconstitution. Do not freeze.' },
-    options:[ {label:'10mg vial', price:49.95} ]
-  },
-  {
-    slug:'mic', name:'MIC (Lipo-C + B12)', form:'Injectable', category:'weight-loss', badge:null, purity:'Research Blend',
-    shortDesc:'Methionine/Inositol/Choline lipotropic blend with B12 for metabolic research.',
-    description:[
-      "MIC combines Methionine, Inositol and Choline with vitamin B12 (cyanocobalamin), a classic lipotropic reference blend used in hepatic fat-metabolism and energy-marker research designs.",
-      "Included in many comparative studies examining lipotropic support alongside GLP-1/GIP receptor agonist research protocols."
-    ],
-    researchApplications:['Hepatic fat metabolism studies','Energy marker & cobalamin pathway research'],
-    specs:{ appearance:'Clear solution', reconstitution:'Ready-mixed / bacteriostatic water depending on batch', storage:'2-8°C, dark. Use within 14 days of reconstitution. Do not freeze.' },
-    options:[ {label:'10mg vial', price:204.00} ]
-  },
-  {
     slug:'ghk-cu', name:'GHK-Cu Copper Peptide', form:'Injectable', category:'skin-antiaging', badge:'Best Seller', purity:'99%+ HPLC',
+    photo:'assets/img/products/ghk-cu.jpeg',
     shortDesc:'Copper tripeptide widely referenced in collagen synthesis & wound-repair studies.',
     description:[
       "GHK-Cu (Copper Tripeptide-1) is a naturally occurring copper-binding peptide extensively cited in dermal research literature for its role in collagen and elastin synthesis, and anti-inflammatory signalling.",
@@ -180,51 +75,8 @@ window.AURUM_PRODUCTS = [
     options:[ {label:'50mg vial', price:45.60}, {label:'100mg vial', price:60.00} ]
   },
   {
-    slug:'glutathione', name:'Glutathione', form:'Injectable', category:'skin-antiaging', badge:null, purity:'99%+ HPLC',
-    shortDesc:'Master antioxidant tripeptide studied for oxidative-stress and pigmentation research.',
-    description:[
-      "Glutathione is the body's principal endogenous antioxidant tripeptide, referenced widely in oxidative-stress, hepatic-detoxification and melanogenesis research.",
-      "Laboratory literature has examined its interaction with tyrosinase activity as a model for pigmentation-pathway research."
-    ],
-    researchApplications:['Oxidative stress marker studies','Tyrosinase / melanogenesis pathway research','Hepatic antioxidant research'],
-    specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'2-8°C, dark. Reconstituted: use within 14 days. Do not freeze.' },
-    options:[ {label:'600mg vial', price:38.50} ]
-  },
-  {
-    slug:'kpv', name:'KPV Tripeptide', form:'Injectable', category:'skin-antiaging', badge:null, purity:'99%+ HPLC',
-    shortDesc:'Anti-inflammatory tripeptide fragment of alpha-MSH studied in cytokine research.',
-    description:[
-      "KPV is a C-terminal tripeptide fragment of alpha-MSH, referenced in the literature for potent inhibition of pro-inflammatory cytokines including TNF-alpha and IL-6.",
-      "Frequently studied in combination with GHK-Cu in dermal-inflammation and barrier-repair research models."
-    ],
-    researchApplications:['Cytokine inhibition studies (TNF-α, IL-6)','Dermal inflammation & barrier research'],
-    specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'2-8°C, dark. Reconstituted: use within 14 days. Do not freeze.' },
-    options:[ {label:'10mg vial', price:80.40} ]
-  },
-  {
-    slug:'bbg70', name:'BBG70 Complex', form:'Injectable', category:'skin-antiaging', badge:'New', purity:'Research Blend',
-    shortDesc:'GHK-Cu + BPC-157 + TB-500 complex for combined dermal-repair research.',
-    description:[
-      "BBG70 is a pre-blended 70mg complex (GHK-Cu 50mg, BPC-157 10mg, TB-500 10mg) formulated for researchers studying combined dermal-remodelling and tissue-repair pathways in a single reference solution.",
-      "Reduces the need to separately reconstitute three individual compounds for combination-protocol research designs."
-    ],
-    researchApplications:['Combined dermal remodelling studies','Multi-pathway tissue repair research'],
-    specs:{ appearance:'Pale blue lyophilised powder', reconstitution:'Bacteriostatic water', storage:'2-8°C, dark. Reconstituted: use within 14 days. Do not freeze.' },
-    options:[ {label:'70mg vial', price:258.00} ]
-  },
-  {
-    slug:'klow', name:'KLOW Blend', form:'Injectable', category:'skin-antiaging', badge:'New', purity:'Research Blend',
-    shortDesc:'BPC-157 + GHK-Cu + TB-500 + KPV four-compound skin & repair research blend.',
-    description:[
-      "KLOW combines BPC-157, GHK-Cu, TB-500 and KPV in a single 80mg reference vial, formulated for researchers examining combined tissue-repair, anti-inflammatory and dermal-remodelling pathways.",
-      "One of our most requested pre-blended formulations for laboratory comparison studies against single-compound protocols."
-    ],
-    researchApplications:['Multi-compound tissue repair research','Combined anti-inflammatory & dermal remodelling studies'],
-    specs:{ appearance:'Pale blue lyophilised powder', reconstitution:'Bacteriostatic water (2.5-3.0mL)', storage:'-20°C unopened; reconstituted 2-8°C, use within 10-20 days. Do not freeze after mixing.' },
-    options:[ {label:'80mg vial', price:294.00} ]
-  },
-  {
     slug:'pt-141', name:'PT-141 (Bremelanotide)', form:'Injectable', category:'specialty', badge:null, purity:'99%+ HPLC',
+    photo:'assets/img/products/pt-141.jpeg',
     shortDesc:'Melanocortin receptor agonist studied in central nervous system research.',
     description:[
       "PT-141 (Bremelanotide) is a synthetic melanocortin receptor agonist referenced in CNS and melanocortin-pathway research literature for its receptor-binding characteristics at MC3R/MC4R.",
@@ -236,6 +88,7 @@ window.AURUM_PRODUCTS = [
   },
   {
     slug:'selank', name:'Selank', form:'Injectable', category:'cognitive-sleep', badge:null, purity:'99%+ HPLC',
+    photo:'assets/img/products/selank.jpeg',
     shortDesc:'Heptapeptide studied for GABAergic and HPA-axis stress-response research.',
     description:[
       "Selank is a synthetic heptapeptide developed from the immunomodulatory peptide tuftsin, referenced in anxiolytic and neuroprotective research literature for modulation of GABA and monoamine pathways.",
@@ -246,37 +99,52 @@ window.AURUM_PRODUCTS = [
     options:[ {label:'5mg vial', price:50.40}, {label:'10mg vial', price:90.00} ]
   },
   {
-    slug:'dsip', name:'DSIP (Delta Sleep Inducing Peptide)', form:'Injectable', category:'cognitive-sleep', badge:null, purity:'99%+ HPLC',
-    shortDesc:'Neuropeptide studied for delta-wave sleep architecture research.',
+    slug:'ahk-cu', name:'AHK-Cu Copper Peptide', form:'Injectable', category:'skin-antiaging', badge:'New', purity:'99%+ HPLC',
+    photo:'assets/img/products/ahk-cu.jpeg',
+    shortDesc:'Copper tripeptide studied for hair-follicle and dermal-regeneration research, distinct from GHK-Cu.',
     description:[
-      "DSIP is a naturally occurring neuropeptide first isolated from rabbit cerebral venous blood, referenced in sleep-architecture research for its association with delta-wave (slow-wave) sleep generation.",
-      "A key reference compound in CNS sleep-cycle and neuroendocrine rhythm research models."
+      "AHK-Cu (Alanyl-Histidyl-Lysine copper complex) is a copper-binding tripeptide structurally related to GHK-Cu, referenced in dermal research literature for a distinct amino-acid sequence and receptor-binding profile.",
+      "Laboratory literature has examined AHK-Cu's association with VEGF expression and dermal papilla cell proliferation, making it a compound of interest in comparative hair-follicle and skin-remodelling research alongside GHK-Cu."
     ],
-    researchApplications:['Delta-wave sleep architecture studies','Neuroendocrine rhythm research'],
-    specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'2-8°C, dark. Reconstituted: use within 14 days. Do not freeze.' },
-    options:[ {label:'5mg vial', price:67.20}, {label:'10mg vial', price:104.40} ]
+    researchApplications:['Hair follicle / VEGF pathway studies','Dermal papilla cell proliferation research','Comparative copper-peptide research vs GHK-Cu'],
+    specs:{ appearance:'White to pale blue lyophilised powder', reconstitution:'Bacteriostatic water', storage:'2-8°C, dark. Reconstituted: use within 10-20 days. Do not freeze.' },
+    options:[ {label:'100mg vial', price:60.00} ]
   },
   {
-    slug:'epithalon', name:'Epithalon', form:'Injectable', category:'cognitive-sleep', badge:null, purity:'99%+ HPLC',
-    shortDesc:'Synthetic tetrapeptide studied in telomerase-activity & pineal-gland research.',
+    slug:'ara-290', name:'ARA-290 (Cibinetide)', form:'Injectable', category:'specialty', badge:'New', purity:'99%+ HPLC',
+    photo:'assets/img/products/ara-290.jpeg',
+    shortDesc:'Non-hematopoietic EPO-derived peptide studied for neuropathic pain and tissue-protective pathway research.',
     description:[
-      "Epithalon (Epitalon) is a synthetic tetrapeptide analogue of the naturally occurring peptide epithalamin, one of the most cited compounds in longevity and telomerase-activity research literature.",
-      "Studied in pineal-gland function models exploring circadian regulation and cellular senescence markers."
+      "ARA-290 (Cibinetide) is a synthetic 11-amino-acid peptide derived from the erythropoietin (EPO) sequence, engineered to engage the innate repair receptor (IRR) without the erythropoietic activity of native EPO.",
+      "Referenced in neuropathic pain, corneal nerve regeneration and anti-inflammatory cytokine research literature as a tissue-protective signalling reference compound."
     ],
-    researchApplications:['Telomerase activity studies','Pineal gland / circadian rhythm research','Cellular senescence marker research'],
-    specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'2-8°C, dark. Reconstituted: use within 20 days. Do not freeze.' },
-    options:[ {label:'10mg vial', price:50.40}, {label:'50mg vial', price:180.00} ]
+    researchApplications:['Innate repair receptor (IRR) signalling studies','Neuropathic pain pathway research','Corneal nerve regeneration models','Anti-inflammatory cytokine research'],
+    specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'2-8°C, dark. Reconstituted: use within 14 days. Do not freeze.' },
+    options:[ {label:'10mg vial', price:60.00} ]
   },
   {
-    slug:'semax', name:'Semax', form:'Injectable', category:'cognitive-sleep', badge:null, purity:'99%+ HPLC',
-    shortDesc:'ACTH-derived nootropic peptide studied for BDNF and cognitive research.',
+    slug:'snap-8', name:'SNAP-8', form:'Injectable', category:'skin-antiaging', badge:'New', purity:'99%+ HPLC',
+    photo:'assets/img/products/snap-8.jpeg',
+    shortDesc:'Octapeptide studied for SNARE-complex inhibition and expression-line research.',
     description:[
-      "Semax is a synthetic heptapeptide derived from ACTH(4-10), extensively referenced in nootropic and neurotrophic-factor research literature for its association with elevated BDNF expression.",
-      "A benchmark reference compound in hippocampal and cognitive-performance research models."
+      "SNAP-8 (Acetyl Octapeptide-3) is a synthetic octapeptide analogue of the SNAP-25 protein N-terminus, referenced in dermal research literature for its proposed inhibition of SNARE-complex assembly involved in neurotransmitter-mediated muscle-contraction signalling.",
+      "An extended-chain analogue of Acetyl Hexapeptide-8, frequently studied as a comparative topical-model reference compound in expression-line research."
     ],
-    researchApplications:['BDNF expression studies','Hippocampal function research','Cognitive performance marker studies'],
+    researchApplications:['SNARE-complex inhibition studies','Neuromuscular signalling research','Comparative research vs Acetyl Hexapeptide-8'],
     specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'2-8°C, dark. Reconstituted: use within 14 days. Do not freeze.' },
-    options:[ {label:'10mg vial', price:90.00} ]
+    options:[ {label:'10mg vial', price:45.00} ]
+  },
+  {
+    slug:'bac-water', name:'Bacteriostatic Water', form:'Injectable', category:'specialty', badge:null, purity:'USP Grade',
+    photo:'assets/img/products/bac-water.jpeg',
+    shortDesc:'Sterile 0.9% benzyl-alcohol diluent for laboratory reconstitution of lyophilised peptides.',
+    description:[
+      "Bacteriostatic Water for reconstitution is a sterile, USP-grade diluent containing 0.9% benzyl alcohol as a bacteriostatic preservative, used for reconstituting lyophilised peptide powders prior to laboratory use.",
+      "Multi-use vial format allows repeated withdrawal across a single reconstitution series while reducing contamination risk relative to single-use sterile water."
+    ],
+    researchApplications:['Peptide reconstitution','Multi-use laboratory diluent'],
+    specs:{ appearance:'Clear sterile solution', reconstitution:'Supplied ready to use', storage:'Room temperature or 2-8°C. Use within 28 days of first puncture.' },
+    options:[ {label:'3mg vial', price:9.00}, {label:'10mg vial', price:30.00} ]
   },
 ];
 

@@ -73,7 +73,7 @@
       var p = window.AURUM_getProduct(item.slug);
       if(!p) return '';
       return '<tr>'
-        + '<td><div class="cart-item-info"><div class="thumb"><img class="product-photo" src="assets/img/peptide-vial.webp" alt="' + p.name + '" loading="lazy"></div>'
+        + '<td><div class="cart-item-info"><div class="thumb"><img class="product-photo" src="' + (p.photo || 'assets/img/peptide-vial.webp') + '" alt="' + p.name + '" loading="lazy"></div>'
         + '<div><a href="product.html?slug=' + p.slug + '" style="font-weight:700;">' + p.name + '</a><br><span class="muted" style="font-size:.82rem;">' + item.option + '</span></div></div></td>'
         + '<td>' + Q.formatPrice(item.price) + '</td>'
         + '<td><input type="number" min="1" value="' + item.qty + '" data-idx="' + idx + '" class="qtyEdit" style="width:70px;padding:6px 8px;"></td>'
