@@ -9,7 +9,7 @@ window.AurumRender = (function(){
       + '<a href="' + root + 'product.html?slug=' + p.slug + '" class="card product-card">'
       + '  <div class="product-media">' + badge + '<img class="product-photo" src="' + root + 'assets/img/peptide-vial.webp" alt="' + p.name + '" loading="lazy"></div>'
       + '  <div class="product-body">'
-      + '    <span class="product-cat">' + window.AURUM_getCategoryLabel(p.category) + (p.form === 'Capsule' ? ' &middot; Capsule' : '') + '</span>'
+      + '    <span class="product-cat">' + window.AURUM_getCategoryLabel(p.category) + '</span>'
       + '    <h3>' + p.name + '</h3>'
       + '    <p class="desc">' + p.shortDesc + '</p>'
       + '    <div class="product-foot">'

@@ -2,8 +2,7 @@
    Pricing: items matching a spec in Pricing/Price list 2026 peptide.pdf (USD wholesale cost per
    box of 10 vials, FOB Shenzhen) are set to (box price / 10) x 1.5 [USD->AUD] x 8 [margin].
    Items with no matching spec/size in that list keep their prior indicative AUD placeholder price —
-   update once real cost data for that size is available. All oral capsules are not covered by the
-   2026 wholesale list (injectables only) and remain placeholder pricing.
+   update once real cost data for that size is available.
    All copy is framed around in-vitro / laboratory research use only. No human dosing instructions. */
 window.AURUM_CATEGORIES = [
   { key:'weight-loss',      label:'Weight Loss & Metabolic' },

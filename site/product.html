@@ -102,7 +102,7 @@
   document.getElementById('pageDesc').setAttribute('content', p.shortDesc);
   document.getElementById('breadcrumb').innerHTML = '<a href="index.html">Home</a> / <a href="shop.html">Shop</a> / <a href="shop.html?category=' + p.category + '">' + window.AURUM_getCategoryLabel(p.category) + '</a> / ' + p.name;
   document.getElementById('pdMedia').innerHTML = '<img class="product-photo" src="assets/img/peptide-vial.webp" alt="' + p.name + '" loading="lazy">';
-  document.getElementById('pdCat').textContent = window.AURUM_getCategoryLabel(p.category) + (p.form === 'Capsule' ? ' · Oral Capsule' : ' · Injectable');
+  document.getElementById('pdCat').textContent = window.AURUM_getCategoryLabel(p.category) + ' · Injectable';
   document.getElementById('pdName').textContent = p.name;
   document.getElementById('pdShortDesc').textContent = p.shortDesc;
 
