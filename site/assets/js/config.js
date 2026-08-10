@@ -5,8 +5,6 @@ window.AURUM_CONFIG = {
   supportPhone: '+61 4XX XXX XXX',            /* PLACEHOLDER */
   abn: '00 000 000 000',                      /* PLACEHOLDER */
   social: {
-    whatsapp: '#',  /* PLACEHOLDER — e.g. https://wa.me/614XXXXXXXX */
-    telegram: '#',  /* PLACEHOLDER — e.g. https://t.me/yourhandle */
     discord:  '#',  /* PLACEHOLDER — e.g. https://discord.gg/yourinvite */
     instagram:'#',
     facebook: '#'

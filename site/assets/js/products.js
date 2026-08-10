@@ -36,7 +36,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['Cell migration & actin regulation studies','Angiogenesis / microvascular research','Wound-healing kinetics models','Combination studies with BPC-157'],
     specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water; gentle roll, avoid vigorous shaking', storage:'Lyophilised: 2-8°C, dark. Reconstituted: 2-8°C, use within 14 days. Do not freeze.' },
-    options:[ {label:'5mg vial', price:93.60}, {label:'10mg vial', price:172.80} ]
+    options:[ {label:'10mg vial', price:110.00} ]
   },
   {
     slug:'retatrutide', name:'Retatrutide (RETA)', form:'Injectable', category:'weight-loss', badge:'Popular', purity:'99%+ HPLC',
@@ -60,7 +60,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['AMPK pathway activation studies','Mitochondrial biogenesis research','Insulin-sensitivity marker modelling'],
     specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'Lyophilised: -20°C, dark. Reconstituted: 2-8°C, use within 7 days. Do not freeze.' },
-    options:[ {label:'5mg vial', price:69.95}, {label:'10mg vial', price:84.00} ]
+    options:[ {label:'10mg vial', price:110.00} ]
   },
   {
     slug:'ghk-cu', name:'GHK-Cu Copper Peptide', form:'Injectable', category:'skin-antiaging', badge:'Best Seller', purity:'99%+ HPLC',
@@ -96,7 +96,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['GABAergic pathway studies','HPA-axis / cortisol regulation research','Neuroprotective mechanism studies'],
     specs:{ appearance:'White lyophilised powder', reconstitution:'Bacteriostatic water', storage:'2-8°C, dark. Reconstituted: use within 14 days. Do not freeze.' },
-    options:[ {label:'5mg vial', price:50.40}, {label:'10mg vial', price:90.00} ]
+    options:[ {label:'10mg vial', price:60.00} ]
   },
   {
     slug:'ahk-cu', name:'AHK-Cu Copper Peptide', form:'Injectable', category:'skin-antiaging', badge:'New', purity:'99%+ HPLC',
@@ -144,7 +144,7 @@ window.AURUM_PRODUCTS = [
     ],
     researchApplications:['Peptide reconstitution','Multi-use laboratory diluent'],
     specs:{ appearance:'Clear sterile solution', reconstitution:'Supplied ready to use', storage:'Room temperature or 2-8°C. Use within 28 days of first puncture.' },
-    options:[ {label:'3mg vial', price:9.00}, {label:'10mg vial', price:30.00} ]
+    options:[ {label:'3mg vial', price:1.00}, {label:'10mg vial', price:30.00} ]
   },
 ];
 

@@ -8,7 +8,7 @@
     var m = new RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
     return m ? decodeURIComponent(m[1].replace(/\+/g,' ')) : null;
   }
-  function formatPrice(n){ return '$' + Number(n).toFixed(2); }
+  function formatPrice(n){ return '$' + Number(n).toFixed(2) + ' AUD'; }
 
   /* ---------- Age / research-use gate ---------- */
   function initAgeGate(){

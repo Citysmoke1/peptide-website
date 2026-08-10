@@ -71,6 +71,21 @@
   }
   document.getElementById('artBody').innerHTML = post.body;
 
+  (function(){
+    var ld = {
+      '@context':'https://schema.org', '@type':'BlogPosting',
+      headline:post.title, description:post.excerpt, datePublished:post.date,
+      author:{ '@type':'Organization', name:'The Aurum Research Desk' },
+      publisher:{ '@type':'Organization', name:'The Aurum Peptide Co', logo:{ '@type':'ImageObject', url:'https://theaurumpeptides.com/assets/img/logo.jpeg' } },
+      mainEntityOfPage:'https://theaurumpeptides.com/blog-post.html?slug=' + post.slug
+    };
+    if(post.image){ ld.image = 'https://theaurumpeptides.com/' + post.image; }
+    var s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.textContent = JSON.stringify(ld);
+    document.head.appendChild(s);
+  })();
+
   var related = window.AURUM_BLOG_POSTS.filter(function(p){ return p.slug !== post.slug && p.category === post.category; }).slice(0,3);
   if(related.length < 3){
     var extra = window.AURUM_BLOG_POSTS.filter(function(p){ return p.slug !== post.slug && related.indexOf(p) === -1; }).slice(0, 3 - related.length);

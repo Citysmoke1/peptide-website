@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body data-page="shop" data-root="" class="shop-dark-page">
+<body data-page="shop" data-root="">
 
 <div id="site-header"></div>
 
@@ -19,7 +19,7 @@
   <p>High-purity research peptides.</p>
 </div>
 
-<section class="section">
+<section class="section section-zeus2">
   <div class="container">
     <div class="breadcrumb"><a href="index.html">Home</a> / Shop All Peptides</div>
     <div class="shop-layout">
@@ -79,6 +79,10 @@
   if(initialCat){
     var box = catWrap.querySelector('input[value="' + initialCat + '"]');
     if(box) box.checked = true;
+  }
+  var initialSearch = Q.getParam('search');
+  if(initialSearch){
+    document.getElementById('searchInput').value = initialSearch;
   }
 
   function currentFilters(){

@@ -74,7 +74,7 @@ window.AURUM_BLOG_POSTS = [
   },
   {
     slug:'stress-response-peptide-research-selank-dsip',
-    image:'assets/img/research-article-1.jpeg',
+    image:'assets/img/research-article-4.jpg',
     title:'Selank, DSIP & the Gut-Brain Axis: Peptide Research for Stress Pathways',
     category:'CNS Research',
     readTime:'7 min read',
@@ -97,7 +97,7 @@ window.AURUM_BLOG_POSTS = [
   },
   {
     slug:'pt-141-melanocortin-system-research-primer',
-    image:'assets/img/research-article-2.jpeg',
+    image:'assets/img/research-article-5.jpg',
     title:'PT-141 and the Melanocortin System: A Research Primer',
     category:'Specialty Research',
     readTime:'5 min read',
@@ -118,7 +118,7 @@ window.AURUM_BLOG_POSTS = [
   },
   {
     slug:'ghk-cu-tb-500-hair-follicle-research',
-    image:'assets/img/research-article-3.jpeg',
+    image:'assets/img/research-article-6.webp',
     title:'GHK-Cu & TB-500 in Hair Follicle Research',
     category:'Dermal Research',
     readTime:'6 min read',
@@ -141,7 +141,7 @@ window.AURUM_BLOG_POSTS = [
   },
   {
     slug:'pigmentation-pathway-research-glutathione-ghk-cu-kpv',
-    image:'assets/img/research-article-1.jpeg',
+    image:'assets/img/research-article-7.jpg',
     title:'The Tyrosinase Pathway: Glutathione & Copper Peptide Research for Skin Brightening',
     category:'Dermal Research',
     readTime:'6 min read',
@@ -162,7 +162,7 @@ window.AURUM_BLOG_POSTS = [
   },
   {
     slug:'collagen-elastin-dermal-elasticity-research',
-    image:'assets/img/research-article-2.jpeg',
+    image:'assets/img/research-article-8.jpg',
     title:'Collagen & Elastin: Peptide Research for Dermal Elasticity',
     category:'Dermal Research',
     readTime:'6 min read',
@@ -183,7 +183,7 @@ window.AURUM_BLOG_POSTS = [
   },
   {
     slug:'scar-remodelling-post-acne-pigmentation-research',
-    image:'assets/img/research-article-3.jpeg',
+    image:'assets/img/research-article-10.jpeg',
     title:'Peptide Research in Scar Remodelling & Post-Acne Pigmentation',
     category:'Dermal Research',
     readTime:'6 min read',
@@ -274,7 +274,7 @@ window.AURUM_BLOG_POSTS = [
   },
   {
     slug:'cjc-1295-ipamorelin-ghrh-ghrp-synergy-research',
-    image:'assets/img/research-article-1.jpeg',
+    image:'assets/img/research-article-4.jpg',
     title:'CJC-1295 & Ipamorelin: Understanding GHRH/GHRP Synergy in Research Models',
     category:'Endocrine Research',
     readTime:'7 min read',

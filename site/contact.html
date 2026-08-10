@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact Us | The Aurum Peptide Co</title>
-<meta name="description" content="Get in touch with The Aurum Peptide Co via email, WhatsApp, Telegram, Discord or our contact form.">
+<meta name="description" content="Get in touch with The Aurum Peptide Co via email or our contact form.">
 <link rel="icon" href="assets/img/logo.jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,12 +19,12 @@
   <p>Questions about an order, a product, or research applications? We're a message away.</p>
 </div>
 
-<section class="section">
+<section class="section section-zeus3">
   <div class="container two-col">
     <div>
       <span class="kicker">Reach Us Directly</span>
       <h2>Chat With Our Team</h2>
-      <p class="muted">Fastest response is usually via WhatsApp or Telegram during business hours (9am&ndash;5pm AEST, Mon&ndash;Fri).</p>
+      <p class="muted">Fastest response is usually via email during business hours (9am&ndash;5pm AEST, Mon&ndash;Fri).</p>
       <div style="display:flex;flex-direction:column;gap:14px;margin-top:24px;" id="contactChannels"></div>
     </div>
     <form class="form-card" id="contactForm" novalidate>
@@ -71,10 +71,7 @@
 (function(){
   var cfg = window.AURUM_CONFIG;
   var channels = [
-    { label:'Email', value:cfg.businessEmail, href:'mailto:' + cfg.businessEmail, icon:'&#9993;' },
-    { label:'WhatsApp', value:'Chat with us', href:cfg.social.whatsapp, icon:'&#128241;' },
-    { label:'Telegram', value:'Message us', href:cfg.social.telegram, icon:'&#9992;' },
-    { label:'Discord', value:'Join our server', href:cfg.social.discord, icon:'&#128172;' }
+    { label:'Email', value:cfg.businessEmail, href:'mailto:' + cfg.businessEmail, icon:'&#9993;' }
   ];
   document.getElementById('contactChannels').innerHTML = channels.map(function(c){
     return '<a href="' + c.href + '" target="_blank" rel="noopener" class="card" style="display:flex;align-items:center;gap:16px;padding:18px 20px;">'

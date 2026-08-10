@@ -14,7 +14,7 @@
 
 <div id="site-header"></div>
 
-<section class="section" id="productSection" style="display:none;">
+<section class="section section-zeus3" id="productSection" style="display:none;">
   <div class="container">
     <div class="breadcrumb" id="breadcrumb"></div>
     <div class="pd-grid">
@@ -38,7 +38,7 @@
 
         <div class="pd-actions">
           <button class="btn btn-primary" id="addToCartBtn">Add to Cart</button>
-          <a href="request-product.html" class="btn btn-outline">Ask a Question</a>
+          <a href="request-product.html" class="btn btn-outline-light">Ask a Question</a>
         </div>
 
         <div class="mini-disclaimer">
@@ -105,6 +105,22 @@
   document.getElementById('pdCat').textContent = window.AURUM_getCategoryLabel(p.category) + ' · Injectable';
   document.getElementById('pdName').textContent = p.name;
   document.getElementById('pdShortDesc').textContent = p.shortDesc;
+
+  (function(){
+    var prices = p.options.map(function(o){ return o.price; });
+    var offers = prices.length > 1
+      ? { '@type':'AggregateOffer', priceCurrency:'AUD', lowPrice:Math.min.apply(null, prices), highPrice:Math.max.apply(null, prices), offerCount:prices.length, availability:'https://schema.org/InStock' }
+      : { '@type':'Offer', priceCurrency:'AUD', price:prices[0], availability:'https://schema.org/InStock' };
+    var ld = {
+      '@context':'https://schema.org', '@type':'Product', name:p.name, description:p.shortDesc,
+      image:'https://theaurumpeptides.com/' + (p.photo || 'assets/img/peptide-vial.webp'),
+      sku:p.slug, brand:{ '@type':'Brand', name:'The Aurum Peptide Co' }, offers:offers
+    };
+    var s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.textContent = JSON.stringify(ld);
+    document.head.appendChild(s);
+  })();
 
   var badges = '<span class="small-badge">Purity: ' + p.purity + '</span>';
   if(p.badge) badges += '<span class="small-badge">' + p.badge + '</span>';
