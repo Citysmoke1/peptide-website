@@ -7,7 +7,7 @@
 
   var ICON = {
     discord: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="11" rx="4"/><path d="M8 7c.3-1.6 1.7-3 4-3s3.7 1.4 4 3"/><circle cx="9.5" cy="12.5" r="1" fill="currentColor" stroke="none"/><circle cx="14.5" cy="12.5" r="1" fill="currentColor" stroke="none"/><path d="M9 16c1 .7 4 .7 6 0"/></svg>',
-    cart: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="20" r="1.4" fill="currentColor" stroke="none"/><circle cx="18" cy="20" r="1.4" fill="currentColor" stroke="none"/><path d="M2.5 3h2.4l2.1 11.3a2 2 0 0 0 2 1.7h8.4a2 2 0 0 0 2-1.6L21 8H6"/></svg>'
+    order: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 13h6M9 17h6M9 9h2"/></svg>'
   };
 
   function link(href, label, key){
@@ -47,7 +47,7 @@
     + '      <div class="nav-social">'
     +          socialLink('icon-btn', cfg.social.discord || '#', 'Discord', 'Join our Discord', ICON.discord)
     + '      </div>'
-    + '      <a href="' + root + 'cart.html" class="icon-btn" aria-label="Cart" title="Cart">' + ICON.cart + '<span class="cart-count" id="cartCount">0</span></a>'
+    + '      <a href="' + root + 'shop.html#order-form" class="btn btn-gold btn-sm nav-enquire-btn">' + ICON.order + '<span>Enquire Now</span></a>'
     + '      <button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>'
     + '    </div>'
     + '  </div>'
@@ -62,6 +62,5 @@
     if(toggle && nav){
       toggle.addEventListener('click', function(){ nav.classList.toggle('open'); });
     }
-    if(window.AurumCart){ window.AurumCart.refreshBadge(); }
   });
 })();

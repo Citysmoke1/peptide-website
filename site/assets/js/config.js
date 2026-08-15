@@ -1,7 +1,7 @@
 /* Site-wide configuration — update these values when real details are supplied.
    Business email, social links and Supabase keys are placeholders pending client info. */
 window.AURUM_CONFIG = {
-  businessEmail: 'hello@aurumpeptideco.com', /* PLACEHOLDER — replace with real business email */
+  businessEmail: 'AurumOperationsAdmin@proton.me',
   supportPhone: '+61 4XX XXX XXX',            /* PLACEHOLDER */
   abn: '00 000 000 000',                      /* PLACEHOLDER */
   social: {
@@ -9,8 +9,10 @@ window.AURUM_CONFIG = {
     instagram:'#',
     facebook: '#'
   },
+  /* Web3Forms — all site forms (order enquiry, contact, product request) submit here via
+     assets/js/web3forms.js, which delivers to the inbox tied to this access key. */
+  web3forms: { accessKey: 'ee6f1ef9-77f5-43b8-a422-6816247d4962' },
   /* Supabase backend — not yet connected. Once project URL + anon key are supplied,
-     wire form submit handlers (see request-product.html, contact.html, track-order.html,
-     checkout.html) to supabase.from('table').insert({...}) instead of the local mock. */
+     order/order-tracking history could move from email-only to supabase.from('table').insert({...}). */
   supabase: { url:'', anonKey:'' }
 };

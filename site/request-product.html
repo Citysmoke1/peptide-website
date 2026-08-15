@@ -57,6 +57,8 @@
         <input type="checkbox" id="rConfirm" required>
         <label for="rConfirm">I confirm I am 18+ and requesting this product strictly for lawful laboratory research purposes.</label>
       </div>
+      <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off">
+      <div class="h-captcha" data-captcha="true"></div>
       <button type="submit" class="btn btn-primary btn-block">Submit Request</button>
       <div class="form-success" id="formSuccess">Thanks — your product request has been received. Our sourcing team will follow up by email if we're able to secure it.</div>
     </form>
@@ -66,20 +68,34 @@
 <div id="site-footer"></div>
 
 <script src="assets/js/config.js"></script>
-<script src="assets/js/cart.js"></script>
 <script src="assets/js/header.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/web3forms.js"></script>
 <script src="assets/js/footer.js"></script>
+<script src="https://web3forms.com/client/script.js" async defer></script>
 <script>
-/* No backend yet — submission is handled locally. Once Supabase is connected,
-   replace this handler with supabase.from('product_requests').insert({...}). */
-document.getElementById('requestForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  if(!this.checkValidity()){ this.reportValidity(); return; }
-  document.getElementById('formSuccess').classList.add('show');
-  this.reset();
-  window.Aurum.showToast('Request submitted — thank you!');
-});
+(function(){
+  var Q = window.Aurum;
+  var requestForm = document.getElementById('requestForm');
+  requestForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!this.checkValidity()){ this.reportValidity(); return; }
+    var btn = requestForm.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    Q.submitWeb3Form(requestForm, { subject:'New Product Request — The Aurum Peptide Co' }).then(function(){
+      document.getElementById('formSuccess').classList.add('show');
+      requestForm.reset();
+      if(window.hcaptcha){ try{ window.hcaptcha.reset(); }catch(err){} }
+      Q.showToast('Request submitted — thank you!');
+    }).catch(function(){
+      Q.showToast('Something went wrong submitting your request — please email us directly.');
+    }).finally(function(){
+      btn.disabled = false;
+      btn.textContent = 'Submit Request';
+    });
+  });
+})();
 </script>
 </body>
 </html>

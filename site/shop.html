@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shop All Peptides | The Aurum Peptide Co</title>
-<meta name="description" content="Browse our full range of research peptides — weight loss, growth hormone, skin, cognitive and more. Third-party tested.">
+<title>Shop &amp; Order Peptides | The Aurum Peptide Co</title>
+<meta name="description" content="Browse our full range of research peptides and submit your order details — weight loss, growth hormone, skin, cognitive and more. We'll follow up with a formal invoice.">
 <link rel="icon" href="assets/img/logo.jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,13 +15,29 @@
 <div id="site-header"></div>
 
 <div class="page-banner">
-  <h1>Shop All Peptides</h1>
-  <p>High-purity research peptides.</p>
+  <h1>Shop &amp; Order Peptides</h1>
+  <p>Pick a popular package or build your own order from our full catalogue below — we'll follow up by email with a formal invoice.</p>
 </div>
+
+<section class="section">
+  <div class="container">
+    <div class="center" style="max-width:640px;margin:0 auto 44px;">
+      <span class="kicker">Popular Packages</span>
+      <h2>Curated Research Stacks</h2>
+      <p class="muted">The combinations our researchers order most. Add one to your order in a click, then adjust quantities or add more in the form below.</p>
+    </div>
+    <div class="grid grid-4" id="packageGrid"></div>
+  </div>
+</section>
 
 <section class="section section-zeus2">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">Home</a> / Shop All Peptides</div>
+    <div class="breadcrumb"><a href="index.html">Home</a> / Shop &amp; Order</div>
+    <div class="center" style="max-width:640px;margin:0 auto 8px;">
+      <span class="kicker">Full Catalogue</span>
+      <h2>Browse Every Peptide</h2>
+      <p class="muted">Note the exact product name and vial size you want, then add it to the order form below.</p>
+    </div>
     <div class="shop-layout">
       <aside class="filter-panel">
         <h4>Search</h4>
@@ -55,18 +71,157 @@
   </div>
 </section>
 
+<section class="section" id="order-form">
+  <div class="container">
+    <div class="two-col" style="align-items:flex-start;">
+      <div>
+        <span class="kicker">Ready To Order</span>
+        <h2>Submit Your Order Details</h2>
+        <p class="muted">Add a package above, list exact products and sizes from the catalogue, or just describe what you're after in your own words — the more specific, the faster we can invoice you.</p>
+        <p class="muted">We reply by email with a formal invoice and available payment options (bank transfer / crypto) within 1 business day. No payment is taken on this page.</p>
+      </div>
+      <form class="form-card" id="orderForm" novalidate>
+        <div class="form-row-2">
+          <div class="form-row">
+            <label for="oFirstName">First Name *</label>
+            <input type="text" id="oFirstName" name="first_name" required>
+          </div>
+          <div class="form-row">
+            <label for="oLastName">Last Name *</label>
+            <input type="text" id="oLastName" name="last_name" required>
+          </div>
+        </div>
+        <div class="form-row-2">
+          <div class="form-row">
+            <label for="oEmail">Email Address *</label>
+            <input type="email" id="oEmail" name="email" required>
+          </div>
+          <div class="form-row">
+            <label for="oPhone">Phone *</label>
+            <input type="tel" id="oPhone" name="phone" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="oDetails">Order Details *</label>
+          <textarea id="oDetails" name="order_details" rows="6" placeholder="e.g. 3x TB-500 (10mg vial), 1x BPC-157 (5mg vial)" required></textarea>
+        </div>
+        <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off">
+        <div class="h-captcha" data-captcha="true"></div>
+        <button type="submit" class="btn btn-primary btn-block">Send Order Enquiry</button>
+        <div class="form-success" id="orderFormSuccess">Thanks — your order enquiry has been received. We'll email you shortly with a formal invoice and payment options.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
 <div id="site-footer"></div>
 
 <script src="assets/js/config.js"></script>
 <script src="assets/js/products.js"></script>
-<script src="assets/js/cart.js"></script>
 <script src="assets/js/header.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/render.js"></script>
+<script src="assets/js/web3forms.js"></script>
 <script src="assets/js/footer.js"></script>
+<script src="https://web3forms.com/client/script.js" async defer></script>
 <script>
 (function(){
   var Q = window.Aurum;
+
+  /* ---------- Popular Packages ---------- */
+  var PACKAGES = [
+    {
+      badge:'Best Seller Combo',
+      name:'Recovery &amp; Repair Starter Stack',
+      blurb:'Our most requested combination for soft-tissue research — BPC-157 and TB-500 are frequently studied together for tendon, ligament and angiogenesis models.',
+      contents:['1x BPC-157 (5mg vial)','1x TB-500 (10mg vial)'],
+      price:155.60
+    },
+    {
+      badge:'Popular',
+      name:'Metabolic Reset Bundle',
+      blurb:'Pairs a triple-receptor GIP/GLP-1/glucagon agonist with a mitochondrial-derived AMPK-pathway peptide for comprehensive metabolic research models.',
+      contents:['1x Retatrutide (RETA) (10mg vial)','1x MOTS-c (10mg vial)'],
+      price:220.40
+    },
+    {
+      badge:'Comparative Study',
+      name:'Skin &amp; Anti-Aging Duo',
+      blurb:'Two leading copper-tripeptide compounds side by side, for comparative dermal remodelling and hair-follicle research.',
+      contents:['1x GHK-Cu Copper Peptide (50mg vial)','1x AHK-Cu Copper Peptide (100mg vial)'],
+      price:105.60
+    },
+    {
+      badge:'Best Value',
+      name:'Complete Research Kit',
+      blurb:'Everything needed to get started — our two flagship recovery peptides plus enough bacteriostatic water to reconstitute both.',
+      contents:['1x BPC-157 (5mg vial)','1x TB-500 (10mg vial)','2x Bacteriostatic Water (10mg vial)'],
+      price:215.60
+    }
+  ];
+
+  document.getElementById('packageGrid').innerHTML = PACKAGES.map(function(pkg, idx){
+    return '<div class="card package-card">'
+      + '<span class="badge">' + pkg.badge + '</span>'
+      + '<h3>' + pkg.name + '</h3>'
+      + '<p class="muted" style="font-size:.85rem;flex:1;">' + pkg.blurb + '</p>'
+      + '<ul class="package-contents">' + pkg.contents.map(function(c){ return '<li>' + c + '</li>'; }).join('') + '</ul>'
+      + '<div class="package-price">' + Q.formatPrice(pkg.price) + '</div>'
+      + '<button type="button" class="btn btn-gold btn-block package-add-btn" data-idx="' + idx + '">Add This Package to My Order</button>'
+      + '</div>';
+  }).join('');
+
+  function appendOrderLines(lines){
+    var ta = document.getElementById('oDetails');
+    var existing = ta.value.trim();
+    var addition = lines.join('\n');
+    ta.value = existing ? existing + '\n' + addition : addition;
+  }
+
+  function goToOrderForm(){
+    document.getElementById('order-form').scrollIntoView({ behavior:'smooth', block:'start' });
+    document.getElementById('oDetails').focus();
+  }
+
+  Q.qsa('.package-add-btn', document.getElementById('packageGrid')).forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var pkg = PACKAGES[Number(btn.getAttribute('data-idx'))];
+      appendOrderLines(pkg.contents);
+      goToOrderForm();
+      Q.showToast(pkg.name.replace(/&amp;/g,'&') + ' added — review & submit below');
+    });
+  });
+
+  /* Prefill from product.html's "Add to Order" button (?add=Product+(Option)&qty=2) */
+  var addParam = Q.getParam('add');
+  if(addParam){
+    var qty = Number(Q.getParam('qty')) || 1;
+    appendOrderLines([qty + 'x ' + addParam]);
+    window.addEventListener('load', goToOrderForm);
+  }
+
+  /* ---------- Order form submission ---------- */
+  var orderForm = document.getElementById('orderForm');
+  orderForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!this.checkValidity()){ this.reportValidity(); return; }
+    var btn = orderForm.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    Q.submitWeb3Form(orderForm, { subject:'New Order Enquiry — The Aurum Peptide Co' }).then(function(){
+      document.getElementById('orderFormSuccess').classList.add('show');
+      orderForm.reset();
+      if(window.hcaptcha){ try{ window.hcaptcha.reset(); }catch(err){} }
+      Q.showToast('Order enquiry sent — thank you!');
+    }).catch(function(){
+      Q.showToast('Something went wrong sending your order — please email us directly.');
+    }).finally(function(){
+      btn.disabled = false;
+      btn.textContent = 'Send Order Enquiry';
+    });
+  });
+
+  /* ---------- Full catalogue browse/filter ---------- */
   var grid = document.getElementById('productGrid');
   var countEl = document.getElementById('resultCount');
   var catWrap = document.getElementById('categoryFilters');

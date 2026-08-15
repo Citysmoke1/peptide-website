@@ -54,6 +54,8 @@
         <label for="cMessage">Message *</label>
         <textarea id="cMessage" name="message" required></textarea>
       </div>
+      <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off">
+      <div class="h-captcha" data-captcha="true"></div>
       <button type="submit" class="btn btn-primary btn-block">Send Message</button>
       <div class="form-success" id="formSuccess">Thanks for reaching out — we'll reply to your email within 1 business day.</div>
     </form>
@@ -63,12 +65,14 @@
 <div id="site-footer"></div>
 
 <script src="assets/js/config.js"></script>
-<script src="assets/js/cart.js"></script>
 <script src="assets/js/header.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/web3forms.js"></script>
 <script src="assets/js/footer.js"></script>
+<script src="https://web3forms.com/client/script.js" async defer></script>
 <script>
 (function(){
+  var Q = window.Aurum;
   var cfg = window.AURUM_CONFIG;
   var channels = [
     { label:'Email', value:cfg.businessEmail, href:'mailto:' + cfg.businessEmail, icon:'&#9993;' }
@@ -80,13 +84,24 @@
       + '</a>';
   }).join('');
 
-  /* No backend yet — replace with supabase.from('contact_messages').insert({...}) once connected. */
-  document.getElementById('contactForm').addEventListener('submit', function(e){
+  var contactForm = document.getElementById('contactForm');
+  contactForm.addEventListener('submit', function(e){
     e.preventDefault();
     if(!this.checkValidity()){ this.reportValidity(); return; }
-    document.getElementById('formSuccess').classList.add('show');
-    this.reset();
-    window.Aurum.showToast('Message sent — thank you!');
+    var btn = contactForm.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    Q.submitWeb3Form(contactForm, { subject:'New Contact Form Message — The Aurum Peptide Co' }).then(function(){
+      document.getElementById('formSuccess').classList.add('show');
+      contactForm.reset();
+      if(window.hcaptcha){ try{ window.hcaptcha.reset(); }catch(err){} }
+      Q.showToast('Message sent — thank you!');
+    }).catch(function(){
+      Q.showToast('Something went wrong sending your message — please email us directly.');
+    }).finally(function(){
+      btn.disabled = false;
+      btn.textContent = 'Send Message';
+    });
   });
 })();
 </script>
