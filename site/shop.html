@@ -102,6 +102,10 @@
           </div>
         </div>
         <div class="form-row">
+          <label>Quick Auto-fill</label>
+          <div class="autofill-row" id="autofillRow"></div>
+        </div>
+        <div class="form-row">
           <label for="oDetails">Order Details *</label>
           <textarea id="oDetails" name="order_details" rows="6" placeholder="e.g. 3x TB-500 (10mg vial), 1x BPC-157 (5mg vial)" required></textarea>
         </div>
@@ -133,6 +137,7 @@
     {
       badge:'Best Seller Combo',
       name:'Recovery &amp; Repair Starter Stack',
+      short:'Recovery &amp; Repair',
       blurb:'Our most requested combination for soft-tissue research — BPC-157 and TB-500 are frequently studied together for tendon, ligament and angiogenesis models.',
       contents:['1x BPC-157 (5mg vial)','1x TB-500 (10mg vial)'],
       price:155.60
@@ -140,6 +145,7 @@
     {
       badge:'Popular',
       name:'Metabolic Reset Bundle',
+      short:'Metabolic Reset',
       blurb:'Pairs a triple-receptor GIP/GLP-1/glucagon agonist with a mitochondrial-derived AMPK-pathway peptide for comprehensive metabolic research models.',
       contents:['1x Retatrutide (RETA) (10mg vial)','1x MOTS-c (10mg vial)'],
       price:220.40
@@ -147,6 +153,7 @@
     {
       badge:'Comparative Study',
       name:'Skin &amp; Anti-Aging Duo',
+      short:'Skin &amp; Anti-Aging',
       blurb:'Two leading copper-tripeptide compounds side by side, for comparative dermal remodelling and hair-follicle research.',
       contents:['1x GHK-Cu Copper Peptide (50mg vial)','1x AHK-Cu Copper Peptide (100mg vial)'],
       price:105.60
@@ -154,6 +161,7 @@
     {
       badge:'Best Value',
       name:'Complete Research Kit',
+      short:'Research Kit',
       blurb:'Everything needed to get started — our two flagship recovery peptides plus enough bacteriostatic water to reconstitute both.',
       contents:['1x BPC-157 (5mg vial)','1x TB-500 (10mg vial)','2x Bacteriostatic Water (10mg vial)'],
       price:215.60
@@ -167,9 +175,21 @@
       + '<p class="muted" style="font-size:.85rem;flex:1;">' + pkg.blurb + '</p>'
       + '<ul class="package-contents">' + pkg.contents.map(function(c){ return '<li>' + c + '</li>'; }).join('') + '</ul>'
       + '<div class="package-price">' + Q.formatPrice(pkg.price) + '</div>'
-      + '<button type="button" class="btn btn-gold btn-block package-add-btn" data-idx="' + idx + '">Add This Package to My Order</button>'
+      + '<button type="button" class="btn btn-gold btn-block package-add-btn" data-idx="' + idx + '">Add to My Order</button>'
       + '</div>';
   }).join('');
+
+  document.getElementById('autofillRow').innerHTML = PACKAGES.map(function(pkg, idx){
+    return '<button type="button" class="autofill-btn" data-idx="' + idx + '">Auto-fill: ' + pkg.short + '</button>';
+  }).join('');
+  Q.qsa('.autofill-btn', document.getElementById('autofillRow')).forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var pkg = PACKAGES[Number(btn.getAttribute('data-idx'))];
+      appendOrderLines(pkg.contents);
+      document.getElementById('oDetails').focus();
+      Q.showToast(pkg.short.replace(/&amp;/g,'&') + ' added to order details');
+    });
+  });
 
   function appendOrderLines(lines){
     var ta = document.getElementById('oDetails');
