@@ -88,8 +88,8 @@
       requestForm.reset();
       if(window.hcaptcha){ try{ window.hcaptcha.reset(); }catch(err){} }
       Q.showToast('Request submitted — thank you!');
-    }).catch(function(){
-      Q.showToast('Something went wrong submitting your request — please email us directly.');
+    }).catch(function(err){
+      Q.showToast((err && err.message) || 'Something went wrong submitting your request — please email us directly.');
     }).finally(function(){
       btn.disabled = false;
       btn.textContent = 'Submit Request';

@@ -213,8 +213,8 @@
       orderForm.reset();
       if(window.hcaptcha){ try{ window.hcaptcha.reset(); }catch(err){} }
       Q.showToast('Order enquiry sent — thank you!');
-    }).catch(function(){
-      Q.showToast('Something went wrong sending your order — please email us directly.');
+    }).catch(function(err){
+      Q.showToast((err && err.message) || 'Something went wrong sending your order — please email us directly.');
     }).finally(function(){
       btn.disabled = false;
       btn.textContent = 'Send Order Enquiry';
